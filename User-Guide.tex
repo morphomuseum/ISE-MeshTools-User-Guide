@@ -1,0 +1,72 @@
+%Préambule du document :
+\documentclass[11pt]{book}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+
+\title{ISE-MeshTools User's guide\\ISE-MeshTools v. 1.2.1}
+
+
+\author{Renaud LEBRUN, Cécile PELADAN, Stefan SCHLAGER, Jean DUMONCEL}
+\date{30th december 2015} 
+
+\rhead{\begin{picture}(0,0) \put(0,0){\includegraphics[width=1cm]{header.png}} \end{picture}}
+
+%Corps du document :
+\begin{document}
+	\maketitle
+   ISE-MeshTools is a software designed by Renaud Lebrun, from the university of Montpellier II. ISE-MeshTools is a 
+system for the processing and editing of series of 3D triangular meshes. The system provides a set of tools for editing, 
+positioning, deforming, labelling, measuring and rendering sets of 3D meshes. Features include:\\
+•Retrodeformation for un-deforming fossils/deformed specimens\\
+•Point and curve primitives for placing the exact type of landmark points you’re interested in\\
+•Easy to use 3D interface for positioning and manipulating sets of surfaces and landmark primitives\\
+•Mesh tagging, labelling and colouring (to allow for the creation of anatomy atlases)\\
+• Mesh scalar computation and colouring (based upon curvature/thickness etc...)
+
+		 \chapter{Licence}
+    
+    \section{ISE-MeshTools}
+    ISE-MeshTools is Copyright(C) 2013-2016: Renaud LEBRUN, Cécile PELADAN, Stefan SCHLAGER, Jean DUMONCEL. All rights reserved.
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
+General Public License as published by the Free Software Foundation; either version 2 of the License, 
+or any later version.\\\\
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+    \section{VTK}
+  ISE-MeshTools’ compiled versions contain binary forms of VTK: Copyright (c) 2000-2006 Kitware Inc. 28 
+Corporate Drive, Suite 204, Clifton Park, NY, 12065, USA. All rights reserved. Redistribution and use 
+in source and binary forms, with or without modification, are permitted provided that the following 
+conditions are met:\\
+    Redistributions of source code must retain the above copyright notice, this list of conditions and 
+the following disclaimer.\\
+    Redistributions in binary form must reproduce the above copyright notice, this list of conditions 
+and the following disclaimer in the documentation and/or other materials provided with the distribution.//
+    Neither the name of Kitware nor the names of any contributors may be used to endorse or promote products derived from this software without specific prior written permission.\\\\
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS IS’’ AND ANY 
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+    \chapter{F.A.Q.}
+  
+    \section{How should I cite ISE-MeshTools in scientific publications ?}
+    You may  cite ISE-MeshTools with the following reference :\\
+		Lebrun, R. ISE-MeshTools, a 3D interactive fossil reconstruction freeware. 
+		12th Annual Meeting of EAVP, Torino, Italy; 06/2014.
+    \section{Is ISE-MeshTools a geometric morphometrics software ?}
+    No. However, you can digitize 3D landmarks on complex 3D surfaces using ISE-MeshTools, which you 
+		can use in other software.
+		\section{Can I produce/extract 3D meshes out of CT/MRI data using ISE-MeshTools ?}
+		No. To extract 3D meshes CT/MRI data sets, you have to use another software. However, you can edit 
+		3D Meshes in various ways using ISE-MeshTools.
+		\section{Is there a “CTRL-Z” functionnality around ?}
+		No, there is currently no way to cancel any action. So remember to regularly save your work (especially when tagging surfaces), otherwise precious hours of work can be lost in a second.
+		
+\end{document} 
