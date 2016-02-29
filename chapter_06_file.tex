@@ -1,0 +1,289 @@
+\chapter{Menu File}
+\minitoc  
+
+\section{Open surface}
+.stl, .ply, .vtk surfaces can be open via this menu. ISE-MeshTools does not manage textures associated with meshes; still, you can open .obj files, but associated textures will not be loaded. When opening a .ply file containing RGB colours (for instance a file painted manually or automatically with ``MeshLab") or a .vtk file containing RGB scalars, these colours are placed inside the ``RGB" scalars. MeshTools will reinitialize the ``RGB" scalars whenever you change the object’s colour or whenever you activate tag display mode or scalar display mode : if these colours are important to you, you may convert them to TAG values in the menu Tags$\rightarrow$Convert RGB colours to tags before changing the object colour or display mode/before changing tags or any colour scale activated.
+
+\section{Save surface}
+Selected surfaces can be saved into files. If no surface is selected, the following message appears:\\
+If more than one mesh are selected, the following message shows up:\\
+
+\subsection{Save .ply}
+Options:
+- File type: you can save .ply data in binary (little or big endian)
+or ASCII formats.
+- Position : you can keep object original coordinate system or
+save the surface in its current position.
+- Normales : you can chose whether you wish to save normales.
+Note that the ``RGB" scalar (object rendering colour, depending on which rendering mode you
+are using) will be saved inside the .ply file. This means that Tag / Scalar / Object colour can be exported
+and viewed in other software such as MeshLab.
+
+
+\subsection{Save .stl}
+Options:
+- File type: you can save .stl data in binary (little endian) or
+ASCII formats.
+- Position : you can keep object original coordinate system or save the surface in its current position
+
+\subsection{Save .vtk}
+Vtk mesh file format is by far not as widespread as stl or ply
+format. However, it is extremely useful as it allows to store
+scalar and tag values at each vertex or at each triangle.
+Options:
+- File type: you can save .vtk data in binary (little endian) or
+ASCII formats.
+- Position : you can keep object original coordinate system
+or save the surface in its current position
+Note that the ``RGB" scalar (object rendering colour, depending on which rendering mode you are
+using) will be saved inside the .vtk file.
+
+\subsection{Save .obj}
+ISE-MeshTools does not manage textures associated with
+meshes. Still, you can save meshes in .obj format, but
+textures will not be saved.
+Options:
+- Position : you can keep object original coordinate system
+or save the surface in its current position
+
+\section{Position}
+In MeshTools, mesh position consists in two
+4*4 square matrices: one matrix is used as the
+aspect matrix (by default the identity matrix),
+and the other one as the position matrix. These
+matrices can be opened and saved in ``.pos"
+format.
+
+\subsection{Load position}
+If no surface is selected, the following message
+appears:\\
+If more than one mesh are selected, the following message shows up :
+
+\subsection{Load transposed position}
+This option may be useful in the following case:
+- Let us suppose that you did modify the position of a given surface and saved its position
+- Then you have saved the surface in its current modified position (that is : the original position of the
+surface is lost).
+For some reason, you may need to open the surface in its original position. To do so, you may apply
+this option (apply transposed position matrix to the modified surface).
+Note : this option only works if the aspect matrix was not modified.
+
+\subsection{Save position}
+Mesh aspect and position matrices can be saved in ``.pos" format. If no surface is selected, the
+following message appears:\\
+
+If more than one mesh are selected, the following message shows up:
+\subsection{Edit manually aspect and position matrices}
+There are two ways to access the object matrix editor :
+- Either select one surface and click on `` "(edit first selected object position and aspect matrices).
+- Or select one surface and click on ``edit selected surfaces$\rightarrow$Rendering modifications$\rightarrow$ edit first
+selected object position and aspect matrices".
+This opens the ``Object Matrix" window, in which the aspect and position matrices can be edited. See
+``Edit selected surfaces" corresponding section (Rendering modifications$\rightarrow$ edit first selected object position and aspect matrices) for further information.
+
+
+\section{Project}
+When working with multiple surface objects,
+loading surfaces and associated positions one
+by one becomes fastidious. You may open and
+save series of meshes and associated position
+matrices using this menu.
+``project" files (.ntw) files are organized the
+following way :
+- Name of surface 1 file
+- Name of position 1 file associated to surface 1
+- Surface 1 RGB colour and transparency
+- Name of surface 2 file
+- Name of position 2 file associated to surface 2
+- Surface 2 RGB colour and transparency
+(etc...)
+Surface files can be of the following types : .stl, .vtk, .ply and .obj
+``.ntw" files can be constructed manually, providing that the refered surface and position files exist.
+
+\subsection{Open project}
+Loads a .ntw file
+
+\subsection{Save project}
+Saves a .ntw file implicating all selected surfaces. Though ISE-MeshTools can open .ntw files
+implicating .stl, .ply and .obj surfaces, when saving a .ntw project, surface files will be saved in .vtk
+format in order to keep potential tag / scalars associated to each saved surface. Each surface file
+will be given the name of the original file. Each position file will be given a name which starts with
+the name of the associated surface and ends with the name of the project. In the .ntw file example
+shown above, the surface files are ``SeG-SP07-URM2_EDJ2.vtk" and ``Seg-SP07-URM2_OES2.vtk",
+and the project name is ``M2_Sup.ntw". The advantage of naming position files that way is you may
+construct different .ntw files with different associated surface files using a same set of surfaces.
+
+Requirement : all selected surfaces saved via this option
+need to have distinct names.
+Note : When working with ``project" files, you may need at
+some point to rename some of the object surfaces. To do so,
+select one surface, click on : the ``Edit Name" window
+appears.
+Press ok to modify the name of that surface object.
+See tutorial ``working with projects" for further information.
+
+\section{Landmarks}
+As mentioned earlier, landmarks can be set on surfaces by pressing ``L" + left mouse click.
+Two series ofconventional landmarks can be set : ``normal" and ``target" landmarks. As mentioned
+earlier, in the ``normal" landmark mode (button active), pressing ``L" + left mouse click results in
+the creation a ``normal" landmark (a red one). In the ``target" landmark mode (button active),
+pressing ``L" + left mouse click will create a ``target" landmark (a yellow one). ``Normal" and ``target"
+landmarks can be loaded and saved.
+Selected ``normal"/"target" landmarks can be reordered using the following buttons. Pressing `` "
+will place the selected landmarks earlier in the ``normal"/"target" landmark list, while pressing `` "
+will place them one step further, respectively.
+ISE-MeshTools can manage two types of landmark files: ``.LMK" ``.VER" files.
+
+.LMK files contain a series of lines, each line
+being constructed the following way: landmark
+name (without space or tab character),
+landmark coordinates.
+
+Note that each landmark name does not need
+to be of the form ``landmark"+landmark number. Meanwhile, the name should not hold space or tab
+characters.
+.VER files contain a series
+of lines, each line being
+constructed the following
+way: landmark name
+(without space or tab
+character), landmark
+coordinates, landmark
+orientation.
+
+\subsection{Load landmarks}
+Landmarks opened using this option will be put in the ``normal" landmark list (red landmarks)
+\subsection{Save landmarks}
+You may decide whether you wish to save only selected ``normal" landmarks or all selected and
+unselected ``normal" landmarks (the red ones).
+\subsection{Save target landmarks}
+
+You may decide whether you wish to save only selected ``target" landmarks or all selected and
+unselected ``target" landmarks (the red ones).
+The section ``Menu: Edit Selected Landmarks" and the tutorial ``working with landmarks" contain
+further information regarding landmark digitization with ISE-MeshTools
+
+\section{Curves}
+3D Curves are constructed in ISE-MeshTools using 2 series of landmarks : a series of ``normal"
+landmarks, and a series of ``target" landmarks of equal sizes. ``Target" landmarks are referred to as
+``curve handles", when they are used to construct curves (``Target" landmarks can also be used to
+achieve TPS deformation, see later in this documentation). By default, curves are not drawn in the
+main 3D window : curves start being drawn when the checkbox ``draw curves" is checked in the menu
+``Viewing opt." ( ). Curves are draw green when no landmark/curve handle belonging to
+the curve is selected. Curves are drawn red when at least one landmark / curve handle involved in the
+curve is selected. Two different cases are considered:
+- Case 1: the numbers of ``normal" and ``handle/target" landmarks differ. In that case, a curve is a
+series of lines passing through ``normal" landmarks.
+- Case 2: the numbers of ``normal" and ``handle/target" landmarks differ. In that case, a curve is a
+series of cubic Bezier curves passing through ``normal" landmarks. For a given set of 2 ``normal"
+consecutive landmarks (Ln and Ln+1) and their associated curve ``handles" (Hn and Hn+1), a mirror
+image of Hn+1 relative to Ln+1 (H’n+1) is constructed. The Bezier curve involving Ln, Ln+1, Hn and
+Hn+1 starts from Ln, going toward Hn, and arrives at Ln+1 coming from the direction of H’n+1.
+
+The explicit form of the curve is :
+B(t) = (1-t) 3Ln + 3(1-t)²tHn + 3(1-t)t²H’n+1 +t3Ln+1, t ϵ[0,1]
+In order to be able to digitize several curves using a given set of normal and target landmarks,
+``normal" landmarks curves can be given 4 flags (see section "Edit Selected landmarks"$\rightarrow$ Landmarks
+involved into curves for further details):
+Flag ``0" : landmark is placed inside the curve (drawn ``red").
+Flag ``1" : landmark is a curve start (drawn ``green").
+Flag ``2" : landmark is placed inside the curve, and is a curve ``milestone" (drawn blue) .
+
+Flag ``3" : landmark is placed inside the curve, and should be connected to the preceding curve
+starting point. When landmark n is flagged that way, landmarkn+1 will be set as a curve starting point.
+Flag ``2" is used to decompose a given curve into curve segments (see ``export curves as landmark
+file"). By default, a curve comprises 1 segment
+Flag ``3" is used to close a curve (by default, curves are open).
+3D curves are loaded and saved into .CUR files, which contain a series of lines, each line being
+constructed the following way: name (without space or tab character), curve ``normal" landmark
+coordinates, curve ``handle" coordinates, flag.
+In the example shown below, 4 curves are defined :
+- an open curve starting from landmark 1 and ending at landmark 7
+- a closed curve involving landmarks 8 to 12
+- a closed curve involving landmarks 13 to 20
+- a closed curve involving landmarks 21 to 26
+These four curves contain only one segment (no curve milestone was set within those 4 curves).
+Note that each name does not need to be of the form ``landmark"+ number. Meanwhile, the name
+should not hold space or tab characters.
+
+
+\subsection{Load curves}
+This menu allows the user to load a .CUR file.
+\subsection{Save curves}
+This menu allows the user to save current landmarks and curve handles as a .CUR file. This action
+is ony allowed if the number of ``normal" landmarks and ``target" landmarks is the same. If not, the
+following message appears:
+
+\subsection{Export curves as landmark file}
+Curves can be transformed in a series of equidistant
+landmarks using this option. The curve decimation window
+appears.
+Each curve/curve segment is saved as a number of
+equidistant landmarks. In the present example, each curve/
+curve segment is saved as 20 equidistant landmarks.\\
+When pressing ``Ok", if the numbers of ``normal" landmarks and ``target" landmarks differ, the
+following message appears:
+\subsection{Save curve infos (length per curve ...)}
+Each curve /curve segment length can be saved as a .txt file
+using this option.
+The section ``Menu: Edit Selected Landmarks" and the
+tutorial ``Working with curves" contain further important
+information regarding curve digitization with ISE-MeshTools.
+
+\section{Tags and flags}
+- Tag colours and names can be edited interactively by
+clicking on , which opens the tag window (see the section
+``Menu Tags" and the tutorial ``Working with tags" for
+further information).
+- By default, Tags are not visible. To activate/deactivate tag
+display, click on
+- Using ``Tag display mode" ( ) is useful when editing
+surface tags.
+25 Tag names and associated colours can be defined in ISEMeshTools.
+Tag colours files (.TAG) consist of 25 pairs lines,
+each pair being constructed following way :
+line 2*n: Tag name
+line 2*n+1: Tag colour and transparency
+Regarding flags, as stated earlier, one series of ``flag
+landmarks" can be set in ISE-MeshTools (button should
+be pressed). To edit flag label, length and colour, select one
+flag landmark, click on . The ``edit flag" window appears.
+Pressing ok will update the label, the colour and the
+length associated to the selected flag, which in turn will be
+unselected. If you wish to edit a second flag, select it and press ``Refresh". The current colour, length
+and label of the newly selected flag will appear in the edit flag window.
+Flags are saved using the .FLG file format, which consists of n pairs of lines constructed the following
+way :
+line 2*n: Flag name
+line 2*n+1: Flag coordinates, flag orientation, flag length and colour.
+
+\subsection{Load tag colours and labels}
+Select a .TAG file using this menu $\rightarrow$ Then open the tag window ( ) : Tag labels, colours and
+transparencies should have been updated.
+\subsection{Save tag colours and labels}
+This option saves the current state of tag labels, colours and transparencies in a .TAG file.
+
+\subsection{Load flags}
+Select a .FLG file using this menu
+
+\subsection{Save flags}
+This option saves the current flag landmarks into a .FLG file, regardless their selection status.
+
+\section{Save infos (surface area, volume...)}
+Surface area, volume, triangle number and
+vertex number of selected surface objects can be
+saved in a .txt file using this option.\\
+
+Note: surface objects should be closed in order to provide a correct estimation of object volume.
+\section{Orientation labels}
+The coordinate system orientation helper labels can be saved into ``.ORI" files, which are .txt files
+containing 6 lines, 1 for each axis.
+
+
+\subsection{Load orientation labels}
+Select a .ORI file using this menu $\rightarrow$ Then open the orientation labels window window (Viewing opt;
+Orientation labels) : the 6 orientation labels should have been updated.
+
+\subsection{Save orientation labels}
+This option saves the current state of orientation labels in a .ORI file.
+
