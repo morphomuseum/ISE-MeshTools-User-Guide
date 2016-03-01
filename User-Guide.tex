@@ -6,6 +6,7 @@
 \usepackage{titling}
 \usepackage{amssymb} 
 \usepackage{minitoc} % chapter's tocs
+\usepackage{authblk} % author affiliations
 \usepackage{fancyhdr} % modify the headers
 \usepackage{tabularx} % tables not larger than A4
 \usepackage[table]{xcolor} %colours inside the tables
@@ -14,6 +15,15 @@
 \usepackage[inner=2cm,outer=2cm]{geometry} %A4 margins
 
 \usepackage[labelfont=bf, margin=0.5cm]{caption} % for figure captions in minipages
+\usepackage{hyperref} %link references (toc, citations) inside document
+\hypersetup{
+    colorlinks,
+    citecolor=orange,
+    filecolor=green,
+    linkcolor=red,
+    urlcolor=blue
+}
+\hypersetup{linktocpage}
 
 
 \pagestyle{fancy}
@@ -22,7 +32,7 @@
 \fancyhead[RO,LE]{\thepage}
 \fancyhead[LO]{\leftmark}
 \fancyhead[RE]{\rightmark}
-
+\setcounter{tocdepth}{1}
 \setcounter{minitocdepth}{1} %we only want sections in minitoc
 
 \pretitle{%
@@ -38,7 +48,8 @@
 
 %\titlepicture[width=13cm]{Logo_software.png}
 \author{Renaud LEBRUN}
-\date{28th february 2016} 
+\affil{Institut des Sciences de l'Evolution, University of Montpellier, France}
+\date{28th February 2016} 
 
 
 %Corps du document :
@@ -49,12 +60,12 @@
 	\maketitle
    ISE-MeshTools is a software designed by Renaud Lebrun, from the University of Montpellier. ISE-MeshTools is a 
 system for the processing and editing of series of 3D triangular meshes. The system provides a set of tools for editing, 
-positioning, deforming, labeling, measuring and rendering sets of 3D meshes. Features include:
+positioning, deforming, labelling, measuring and rendering sets of 3D meshes. Features include:
 \begin{itemize}
 \item Retro-deformation for virtual restoration of fossils/deformed specimens;
 \item Point and curve primitives for placing the exact type of landmark points you’re interested in
 \item Easy to use 3D interface for positioning and manipulating sets of surfaces and landmark primitives
-\item Mesh tagging, labeling and coloring (to allow for the creation of anatomy atlases)
+\item Mesh tagging, labelling and colouring (to allow for the creation of anatomy atlases)
 \item Mesh scalar computation and colouring (based upon curvature/thickness etc...)
 \end{itemize}
 
@@ -66,7 +77,8 @@ positioning, deforming, labeling, measuring and rendering sets of 3D meshes. Fea
 		 \input{chapter_02_faq.tex}
      \input{chapter_03_interaction_modes.tex}
 	   \input{chapter_04_keyboard_mouse_controls.tex}
-		\input{chapter_05_camera_gui_controls.tex}
-		\input{chapter_06_file.tex}
+		 \input{chapter_05_camera_gui_controls.tex}
+		 \input{chapter_06_file.tex}
+		 \input{chapter_07_viewing_options.tex}
 		
 \end{document} 
