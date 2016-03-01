@@ -32,8 +32,8 @@
 \fancyhead[RO,LE]{\thepage}
 \fancyhead[LO]{\leftmark}
 \fancyhead[RE]{\rightmark}
-\setcounter{tocdepth}{1}
-\setcounter{minitocdepth}{1} %we only want sections in minitoc
+\setcounter{tocdepth}{1} % we only want chapters and sections in toc
+\setcounter{minitocdepth}{1} %we only want sections in chapters' minitocs
 
 \pretitle{%
   \begin{center}
@@ -49,7 +49,7 @@
 %\titlepicture[width=13cm]{Logo_software.png}
 \author{Renaud LEBRUN}
 \affil{Institut des Sciences de l'Evolution, University of Montpellier, France}
-\date{28th February 2016} 
+\date{\today} 
 
 
 %Corps du document :
@@ -73,12 +73,14 @@ positioning, deforming, labelling, measuring and rendering sets of 3D meshes. Fe
 \tableofcontents
 
 
-		 \input{chapter_01_licence.tex}
-		 \input{chapter_02_faq.tex}
-     \input{chapter_03_interaction_modes.tex}
-	   \input{chapter_04_keyboard_mouse_controls.tex}
-		 \input{chapter_05_camera_gui_controls.tex}
-		 \input{chapter_06_file.tex}
-		 \input{chapter_07_viewing_options.tex}
+		% \input{chapter_01_licence.tex}
+	%	 \input{chapter_02_faq.tex}
+  %   \input{chapter_03_interaction_modes.tex}
+	%   \input{chapter_04_keyboard_mouse_controls.tex}
+	%	 \input{chapter_05_camera_gui_controls.tex}
+	%	 \input{chapter_06_file.tex}
+	%	 \input{chapter_07_viewing_options.tex}
+		 \input{chapter_08_edit_selected_surfaces.tex}
+		
 		
 \end{document} 
