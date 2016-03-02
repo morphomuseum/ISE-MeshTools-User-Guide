@@ -23,7 +23,7 @@ save the surface in its current position.
 \end{itemize}
 
 \end{minipage}    
-\begin{minipage}{0.45\textwidth}\centering
+\begin{minipage}{0.5\textwidth}\centering
   \includegraphics[scale=0.45]{images/File/Save_ply_new.png}
  \captionof{figure}{PLY save options window}
  \end{minipage} 
@@ -44,7 +44,7 @@ ASCII formats.
 \end{itemize}
 
 \end{minipage}    
-\begin{minipage}{0.4\textwidth}\centering
+\begin{minipage}{0.5\textwidth}\centering
   \includegraphics[scale=0.5]{images/File/Save_stl.png}
  \captionof{figure}{STL save options window}
  \end{minipage} 
@@ -67,51 +67,48 @@ ASCII formats.
 or save the surface in its current position
 \end{itemize}
 \end{minipage}    
-\begin{minipage}{0.4\textwidth}\centering
+\begin{minipage}{0.5\textwidth}\centering
   \includegraphics[scale=0.5]{images/File/Save_vtk.png}
  \captionof{figure}{VTK save options window}
  \end{minipage} 
-
-
-
+\noindent
 Note that the ``RGB" scalar (object rendering colour, depending on which rendering mode you are
 using) will be saved inside the .vtk file.
-
 \subsection{Save .obj}
 
 \begin{minipage}{0.5\textwidth}
-
 ISE-MeshTools does not manage textures associated with
 meshes. Still, you can save meshes in .obj format, but
 textures will not be saved.
 Options:
 \begin{itemize}
-
 \item Position : you can keep object original coordinate system
 or save the surface in its current position
 \end{itemize}
 \end{minipage}    
-
-\begin{minipage}{0.4\textwidth}\centering
+\begin{minipage}{0.5\textwidth}\centering
   \includegraphics[scale=0.5]{images/File/Save_obj.png}
  \captionof{figure}{OBJ save options window}
  \end{minipage} 
 
 
 \section{Position}
-\begin{minipage}{0.4\textwidth}
 In ISE-MeshTools, mesh position consists in two
 4*4 square matrices: one matrix is used as the
 aspect matrix (by default the identity matrix),
 and the other one as the position matrix. These
 matrices can be opened and saved in ``.pos"
-format.
-\end{minipage}    
-\begin{minipage}{0.5\textwidth}\centering
+format (see Fig. \ref{position_file}).
+
+
+\begin{figure}
+  \centering
   \includegraphics[scale=0.5]{images/File/Position_file.png}
- \captionof{figure}{Example of .pos position file. The first 4 lines correspond
+ \caption{Example of .pos position file. The first 4 lines correspond
 to the aspect matrix, and the 4 last lines to the position matrix.}
- \end{minipage} 
+\label{position_file}
+\end{figure}
+ 
 
 
 
@@ -159,30 +156,35 @@ This opens the ``Object Matrix" window, in which the aspect and position matrice
 \section{Project}
 
 
+
+
 When working with multiple surface objects,
 loading surfaces and associated positions one
 by one becomes fastidious. You may open and
 save series of meshes and associated position
 matrices using this menu.
 ``project" files (.ntw) files are organized the
-following way :
-\begin{minipage}{0.5\textwidth}
-
+following way (see Fig. \ref{project_file}):
 - Name of surface 1 file\\
 - Name of position 1 file associated to surface 1\\
 - Surface 1 RGB colour and transparency\\
 - Name of surface 2 file\\
 - Name of position 2 file associated to surface 2\\
-- Surface 2 RGB colour and transparency (etc...)
-\end{minipage}  
-\begin{minipage}{0.4\textwidth}\centering
-  \includegraphics[scale=0.5]{images/File/Ntw.png}
- \captionof{figure}{Example of project .ntw file}
- \end{minipage} 
+- Surface 2 RGB colour and transparency (etc...)\\
+ 
 
 
 Surface files can be of the following types : .stl, .vtk, .ply and .obj\\
 ``.ntw" files can be constructed manually, providing that the refered surface and position files exist.
+
+
+
+\begin{figure}
+  \centering  
+ \includegraphics[scale=0.7]{images/File/Ntw.png}
+ \captionof{figure}{Example of project .ntw file}
+\label{project_file}
+\end{figure}
 
 \subsection{Open project}
 Loads a .ntw file
@@ -194,11 +196,10 @@ implicating .stl, .ply and .obj surfaces, when saving a .ntw project, surface fi
 \item ``Seg-SP07-URM2\_EDJ2.vtk" 
 \item ``Seg-SP07-URM2\_OES2.vtk"
 \end{itemize}
-and the project name is ``M2\_Sup.ntw". The advantage of naming position files that way is you may construct different .ntw files with different associated surface files using a same set of surfaces.
-
-
-\begin{minipage}{0.5\textwidth}
-Requirement : all selected surfaces saved via this option
+\noindent and the project name is ``M2\_Sup.ntw". The advantage of naming position files that way is you may construct different .ntw files with different associated surface files using a same set of surfaces.\\
+\noindent
+\begin{minipage}{0.6\textwidth}
+\noindent \noindent Requirement : all selected surfaces saved via this option
 need to have distinct names.
 Note : When working with ``project" files, you may need at
 some point to rename some of the object surfaces. To do so,
@@ -206,7 +207,7 @@ select one surface, click on \includegraphics[scale=0.7]{images/pixmap/name.png}
 Press ok to modify the name of that surface object.
 See tutorial ``working with projects" for further information.
 \end{minipage}  
- \begin{minipage}{0.5\textwidth}\centering
+ \begin{minipage}{0.4\textwidth}\centering
   \includegraphics[scale=0.5]{images/Icons/edit_name.png}
  \captionof{figure}{Edit name window}
  \end{minipage} 
@@ -221,38 +222,30 @@ pressing ``L" + left mouse click will create a ``target" landmark (a yellow one)
 Selected ``normal"/"target" landmarks can be reordered using the following buttons. Pressing ``\includegraphics[scale=0.7]{images/pixmap/s_dessous_17.png}"
 will place the selected landmarks earlier in the ``normal"/"target" landmark list, while pressing ````\includegraphics[scale=0.7]{images/pixmap/s_dessus_17.png}""
 will place them one step further, respectively.\\
-ISE-MeshTools can manage two types of landmark files: ``.LMK" ``.VER" files.
-
-\noindent
-\begin{minipage}{0.6\textwidth}
-.LMK files contain a series of lines, each line
-being constructed the following way: landmark
+ISE-MeshTools can manage two types of landmark files: ``.LMK" ``.VER" files.\\ .LMK files contain a series of lines, each line
+being constructed the following way (see Fig. \ref{LMK_file}): landmark
 name (without space or tab character),
-landmark coordinates.
-
-\end{minipage}  
- \begin{minipage}{0.4\textwidth}\centering
-  \includegraphics[scale=0.5]{images/Landmarks/LMK_file.png}
- \captionof{figure}{Example of .LMK file}
- \end{minipage} 
-
-
-Note that each landmark name does not need to be of the form ``landmark"+landmark number. Meanwhile, the name should not hold space or tab
+landmark coordinates. Note that each landmark name does not need to be of the form ``landmark"+landmark number. Meanwhile, the name should not hold space or tab
 characters.
 \\
 .VER files contain a series
 of lines, each line being
 constructed the following
-way:
-\noindent
+way (see Fig. \ref{VER_file}): landmark name (without space or tab character), landmark coordinates, landmark orientation.
 
-\begin{minipage}{0.5\textwidth}
-Landmark name (without space or tab character), landmark coordinates, landmark orientation.
-\end{minipage}  
- \begin{minipage}{0.4\textwidth}\centering
-  \includegraphics[scale=0.3]{images/Landmarks/VER_file.png}
- \captionof{figure}{Example of .VER file}
- \end{minipage} 
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{images/Landmarks/LMK_file.png}
+ \caption{Example of .LMK file}
+\label{LMK_file}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{images/Landmarks/VER_file.png}
+ \caption{Example of .VER file}
+\label{VER_file}
+\end{figure}
 
 
 \subsection{Load landmarks}

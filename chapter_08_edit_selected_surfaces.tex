@@ -1,68 +1,100 @@
 
 \chapter{Edit selected surfaces}
 \minitoc 
+
+
 As a prerequisite, you need to select surfaces. Only selected surfaces can be edited. 
+
+
+
 \section{Structure modifications}
 \subsection{Invert}
-\noindent
-\begin{minipage}{0.3\textwidth}
 
 A given surface's triangles can be
-inverted in order to show inner structures.\\
+inverted in order to show inner structures (see Fig. \ref{inversion}).\\
 
 Note that the original surface
 is directly affected; this option
 does not involve the use of a
 filter (no output additional
 surface is created).
-\end{minipage}  
- \begin{minipage}{0.6\textwidth}\centering
-  \includegraphics[scale=0.35]{images/Edit_selected_objects/01_invert.png}
- \captionof{figure}{Example of surface triangle inversion. Left: original surface.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{images/Edit_selected_objects/01_invert.png} 
+	\caption{Example of surface triangle inversion. Left: original surface.
 Right: the same surface inverted, revealing inner structures such
 as the endocranial cavity. Gouraud shading rendering + backface
 culling option was used.}
- \end{minipage} 
-\noindent
+\label{inversion}
+ 
+\end{figure}
+
+
 
 
 
 
 \subsection{Mirror}
 
-This option uses vtkReflectionFilter,which produces a mirror image of the original selected input mesh.\\
+This option uses vtkReflectionFilter,which produces a mirror image of the original selected input mesh (see Fig. \ref{mirror}).\\
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.35]{images/Edit_selected_objects/02_Mirror.png} 
 	\caption{Example of fossil restoration implicating the production of mirror images of missing parts.}
- 
+ \label{mirror}
 \end{figure}
 
 \subsection{Connectivity : separate all non connected regions}
+\noindent
+\begin{minipage}{0.5\textwidth}
+This option uses vtkPolyDataConnectivityFilter. This filter produces a new surface for each non-connected region of the selected input surface. 3D meshes of biological objects sometimes contain a multitude of small and biologically irrelevant independent regions. This ``noise" may have multiple origins: low quality of original 3D data, state of preservation of the specimen, threshold used to be able to visualize all relevant structures, etc... In order to extract relevant independent regions, only regions reaching a minimal size (minimal number of triangles) are transformed into new surfaces (see Fig. \ref{decompose34}). This process may take some time to be completed. All produced surfaces corresponding to independent regions can be manipulated independently (see Fig. \ref{decompose5}).\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/03_Decompose.png}
+ \captionof{figure}{Connectivity decomposition window}
+ \end{minipage} 
+\noindent
 
-Connectivity decomposition window\\
 
-Original surface containing a large number of independent regions of size > 350 triangles (in grey)\\
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{images/Edit_selected_objects/03_Decompose_34.png} 
+	\caption{Left: Original surface containing a large number of independent regions of size greater than 350 triangles (in grey). Right : Filtered surfaces. All meshes produced using this filter have more than 350 triangles.}
+\label{decompose34}
+ 
+\end{figure}
 
-Filtered surfaces : all meshes produced using this filter have more than 350 triangles\\
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{images/Edit_selected_objects/03_Decompose5.png} 
+	\caption{Left: original surface (one single mesh). Right: the resulting 298 filter output surfaces (each drawn using a different colour) can be manipulated independently.}
+\label{decompose5}
+ 
+\end{figure}
 
-Left: original surface (one single mesh). Right: the resulting 298 filter output surfaces (each drawn using a different colour) can be manipulated independently.\\
 
-
-This option uses vtkPolyDataConnectivityFilter. This filter produces a new surface for each non-connected region of the selected input surface. 3D meshes of biological objects sometimes contain a multitude of small and biologically irrelevant independent regions. This ``noise" may have multiple origins: low quality of original 3D data, state of preservation of the specimen, threshold used to be able to visualize all relevant structures, etc... In order to extract relevant independent regions, only regions reaching a minimal size (minimal number of triangles) are transformed into new surfaces. This process may take some time to be completed. All produced surfaces corresponding to independent regions can be manipulated independently.
 
 
 
 \subsection{Connectivity: keep largest region}
-This option uses vtkPolyDataConnectivityFilter.This filter produces a new surface for the largest independent region of the selected input surface.\\
+This option uses vtkPolyDataConnectivityFilter.This filter produces a new surface for the largest independent region of the selected input surface (see Fig. \ref{largest_region}).
 
-Left: original surface. Right: the resulting largest region in terms of triangle number.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{images/Edit_selected_objects/03_Decompose6.png} 
+	\caption{Left: original surface. Right: the resulting largest region in terms of triangle number.}
+\label{largest_region}
+ 
+\end{figure}
+
 
 \subsection{Lasso cut}
-You may cut through an input selected surface using this option. Once ``lasso cut" menu is clicked, the mouse cursor changes to a cross in the 3D window. Additional mouse and keyboard controls become available.\\
+You may cut through an input selected surface using this option (see Fig. \ref{lasso_cut}). Once ``lasso cut" menu is clicked, the mouse cursor changes to a cross in the 3D window. Additional mouse and keyboard controls become available (see Table \ref{lasso_cut_controls}).
 \rowcolors{2}{}{gray!25}
 
+\begin{table}
 \begin{tabularx}{\linewidth}{ | c | X | }
 \hline			
 Left click & Adds a segment to polygon (segments are drawn yellow) \\ \hline			
@@ -75,31 +107,49 @@ when click falls inside/outside the closed red polygon: the region falling insid
 
 \\ \hline	
 			
-	
-\end{tabularx}
 
+\end{tabularx}
+\caption{Lasso cut controls}	
+\label{lasso_cut_controls}	
+\end{table}
 Once ``Middle click" is pressed or ``C" + right click is pressed, the usual mouse and keyboard controls become available again.\\
 
-Left clicks $\rightarrow$ add new yellow segments\\
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Edit_selected_objects/04_Lasso_cut.pdf} 
+	\caption{Top row. A: Left clicks $\rightarrow$ add new yellow segments. B: Right final click $\rightarrow$ connects last segment to first segment. C: Result of middle click inside red polygon. Bottom row. C: Left clicks $\rightarrow$ add new yellow segments. D: Right final click $\rightarrow$ connects last segment to first segment. E: Result of middle click outside red polygon. }
+\label{lasso_cut}
+ 
+\end{figure}
 
-Right final click $\rightarrow$ connects last segment to first segment\\
 
-Result of middle click inside red polygon.\\
-
-Left clicks $\rightarrow$ add new yellow segments\\
-Right final click $\rightarrow$ connects last segment to first segment \\
-
-Result of middle click outside red polygon.\\
 
 \subsection{Smooth}
-Smoothing window\\
-
-Left: example of original input surface. Right: resulting output surface after 50 iterations using a relaxation factor of 0.1.\\
-
+\noindent
+\begin{minipage}{0.5\textwidth}
 This option uses vtkSmoothPolyDataFilter.You may smooth an input
-selected surface using this option. A number of iteration and a
+selected surface using this option (see Fig. \ref{smooth}). A number of iteration and a
 relaxation factor are required.\\
 See vtkSmoothPolyDataFilter documentation for further information regarding this option.
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/05_smooth2.png}
+ \captionof{figure}{Smoothing window}
+ \end{minipage} 
+\noindent
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/05_smooth.png} 
+	\caption{Left: example of original input surface. Right: resulting output surface after 50 iterations using a relaxation factor of 0.1.}
+\label{smooth}
+ 
+\end{figure}
+
+
+
+
+
 
 \subsection{TPS deformation}
 TPS window\\
