@@ -152,38 +152,68 @@ See vtkSmoothPolyDataFilter documentation for further information regarding this
 
 
 \subsection{TPS deformation}
-TPS window\\
-Original distorted input surface. 31 ``normal"
-landmarks were placed on the surface and 31
-``target" landmarks were placed in order to
-restore bilateral symmetry.\\
-Resulting output (deformation : 100\%). Note
-that the 31 ``target" landmarks are located on
-the output surface.
-
-
-
-
+\noindent
+\begin{minipage}{0.5\textwidth}
 This option uses vtkThinPlateSplineTransform filter.
 Requirements : to use TPS deformation, a selected surface,
 a series of ``n" normal landmarks and a series of ``n"
 target landmarks (n>3) are needed. ``Normal" landmarks
 are usually placed on the original selected input surface,
 whereas ``target" landmarks are placed at a location in 3D
-space which will drive the TPS deformation. See vtkThinPlateSplineTransform documentation for further information regarding TPS deformation.
+space which will drive the TPS deformation (see Fig. \ref{tps}). See vtkThinPlateSplineTransform documentation for further information regarding TPS deformation.
+
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/06_tps.png}
+ \captionof{figure}{TPS window}
+ \end{minipage} 
+\noindent
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/06_tps_input_output.png} 
+	\caption{Left: original distorted input surface. 31 ``normal"
+landmarks were placed on the surface and 31
+``target" landmarks were placed in order to
+restore bilateral symmetry. Right: resulting output (deformation : 100\%). Note
+that the 31 ``target" landmarks are located on the output surface.
+}
+\label{tps}
+ 
+\end{figure}
+
+
+
+
 
 \subsection{Decimate}
-Decimate window\\
-This option uses vtkDecimatePro and
-vtkQuadricDecimation filters.
-Requirements : to use mesh decimation, a selected
-surfaceis required.
-See vtkDecimatePro and vtkQuadricDecimation documentations for further information regarding
-mesh decimation.\\
+\noindent
+\begin{minipage}{0.5\textwidth}
 
-Original input surface. Number of triangles: 27679.\\
-Resulting output (vtkQuadricDecimation filter,
+
+This option uses vtkDecimatePro and vtkQuadricDecimation filters. Requirements : to use mesh decimation, a selected
+surface is required (see for instance Fig. \ref{decimate}). See vtkDecimatePro and vtkQuadricDecimation documentations for further information regarding
+mesh decimation.
+
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/07_decimate.png}
+ \captionof{figure}{Decimate window}
+ \end{minipage} 
+\noindent
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{images/Edit_selected_objects/07_decimate_input_output.png} 
+	\caption{Left: original input surface. Number of triangles: 27679. Right: resulting output (vtkQuadricDecimation filter,
 decimation factor: 80\%). Number of triangles:5535.
+}
+\label{decimate}
+ 
+\end{figure}
+
+
+
 
 \subsection{Densify}
 Densify window\\
