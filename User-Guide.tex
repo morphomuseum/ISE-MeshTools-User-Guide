@@ -16,9 +16,13 @@
 
 \usepackage[labelfont=bf, margin=0.5cm]{caption} % for figure captions in minipages
 \usepackage{hyperref} %link references (toc, citations) inside document
+\usepackage{natbib} % to cite with parentheses and plain text et only year if you please...
+\bibliographystyle{plainnat} % reference style
+\renewcommand{\bibname}{References} %Rename "`bibliography"' => "`references"'
+
 \hypersetup{
     colorlinks,
-    citecolor=orange,
+    citecolor=brown,
     filecolor=green,
     linkcolor=red,
     urlcolor=blue
@@ -57,10 +61,19 @@
 
 	\dominitoc
 
-	\maketitle
-   ISE-MeshTools is a software designed by Renaud Lebrun, from the University of Montpellier. ISE-MeshTools is a 
-system for the processing and editing of series of 3D triangular meshes. The system provides a set of tools for editing, 
-positioning, deforming, labelling, measuring and rendering sets of 3D meshes. Features include:
+\maketitle
+ 
+
+\tableofcontents
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\markboth{INTRODUCTION}{}
+ ISE-MeshTools \citep{Lebrun2014} was developed  as a help to the scientific journal MorphoMuseuM (M3), in order to help scientists to produce enriched surface The source code is hosted on Github. 
+\section {Origin of the project }
+Over the last two decades, even though 3D data acquisition and computer-assisted techniques have grown increasingly popular among biologists, paleontologists and paleoanthropologists, so far, no standard biology-oriented 3D mesh manipulation software has emerged; most of the time, researchers either use commercial software which are not primarily designed for biologists, or develop their own in-house software solutions. ISEM-MeshTools is developed to meet the need to ease the production and the diffusion of 3D models of biological organisms. ISE-MeshTools provides a set of tools for editing, positioning, deforming, labelling, tagging sets of 3D surfaces. As such, ISE-MeshTools can be used to produce enriched models which can in turn be submitted to M3.
+\section {Main features}
+Features include:
 \begin{itemize}
 \item Retro-deformation for virtual restoration of fossils/deformed specimens;
 \item Point and curve primitives for placing the exact type of landmark points you’re interested in
@@ -69,9 +82,9 @@ positioning, deforming, labelling, measuring and rendering sets of 3D meshes. Fe
 \item Mesh scalar computation and colouring (based upon curvature/thickness etc...)
 \end{itemize}
 
-
-\tableofcontents
-
+ SE-MeshTools allows to import and export 3D meshes in standard formats such as STL, PLY and VTK, and as such, in can be used in conjunction with a variety of other 3D mesh editors such  as MeshLab (http://meshlab.sourceforge.net/) or Blender (https://www.blender.org/) 
+\section {Implementation}
+ISE-MeshTools is entirely written in C++, and uses the visualization library VTK \citep{Avila2001}. The GUI has been designed with FLTK (FLTK, 1998). Since the end of 2015, ISE-MeshTools has become open-source and cross platform, and we are looking forward to welcoming new developers in the future in order to implement new functionalities. 
 
 		 \input{chapter_01_licence.tex}
 		 \input{chapter_02_faq.tex}
@@ -82,5 +95,12 @@ positioning, deforming, labelling, measuring and rendering sets of 3D meshes. Fe
 		 \input{chapter_07_viewing_options.tex}
 		 \input{chapter_08_edit_selected_surfaces.tex}
 		
-		
+
+%\nocite{*}   % All bibliography items appear without citation in the text
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+  \bibliography{References/UsersGuide}		
 \end{document} 
+

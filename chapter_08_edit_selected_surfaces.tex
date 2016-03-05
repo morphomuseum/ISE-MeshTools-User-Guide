@@ -204,8 +204,8 @@ mesh decimation.
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.3]{images/Edit_selected_objects/07_decimate_input_output.png} 
-	\caption{Left: original input surface. Number of triangles: 27679. Right: resulting output (vtkQuadricDecimation filter,
+  \includegraphics[scale=0.25]{images/Edit_selected_objects/07_decimate_input_output.png} 
+	\caption{Mesh decimation. Left: original input surface. Number of triangles: 27679. Right: resulting output (vtkQuadricDecimation filter,
 decimation factor: 80\%). Number of triangles:5535.
 }
 \label{decimate}
@@ -216,66 +216,120 @@ decimation factor: 80\%). Number of triangles:5535.
 
 
 \subsection{Densify}
-Densify window\\
-Original input surface. Number of triangles: 5535.\\
 
-Resulting output (number of subdivisions: 1). Number of triangles: 16605.\\
-
+\noindent
+\begin{minipage}{0.5\textwidth}
 
 This option uses vtkDensifyPolyData filter.
 Requirements : to use mesh densification, a selected
-surfaceis required.
+surface is required (see for instance Fig. \ref{densify}).
 Note that mesh decimation can become extremely slow
 when using number of subdivisions larger than 1.
 See vtkDensifyPolyData documentation for further information regarding mesh densification.
 
-\subsection{Fill holes}
-Fill holes window\\
-Original input surface. Number of triangles: 5535. \\
-Resulting output (maximal size: 1). Number of triangles: 5689.\\
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/08_densify.png}
+ \captionof{figure}{Densify window}
+ \end{minipage} 
+\noindent
 
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Edit_selected_objects/08_densify_input_output.png} 
+	\caption{Mesh densification. Left: original input surface. Number of triangles: 5535. Right: resulting output (number of subdivisions: 1). Number of triangles: 16605.
+}
+\label{densify}
+ 
+\end{figure}
+
+
+
+
+\subsection{Fill holes}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
 
 This option uses vtkFillHolesFilter.
-Requirements : to use mesh hole filling, a selected surfaceis
-required. See vtkFillHolesFilter documentation for further
+Requirements : to use mesh hole filling, a selected surface is
+required (see for instance Fig. \ref{fill_holes}). See vtkFillHolesFilter documentation for further
 information regarding hole filling.
+
+
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/09_fill_holes.png}
+ \captionof{figure}{Fill holes window}
+ \end{minipage} 
+\noindent
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Edit_selected_objects/09_fill_holes_input_output.png} 
+	\caption{Filling holes. Left: original input surface. Number of triangles: 5535. Right: resulting output (maximal size: 1). Number of triangles: 5689.\\
+
+}
+\label{fill_holes}
+ 
+\end{figure}
+
+
+\\
+
+
 
 
 \section{Rendering modifications.}
 \subsection{Set alpha value}
+\noindent
+\begin{minipage}{0.5\textwidth}
+
 A selected surface is needed.\\
 Please chose a value between 0 and 100. 100 stands for ``opaque
 rendering". 0 stands for ``invisible surface".\\
+
+
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/10_transparency.png}
+ \captionof{figure}{Alpha value setting window}
+ \end{minipage} 
+\noindent
+
+
+
+
 As stated earlier, vertex display order has consequences on 3D rendering when working with
 transparency. 3D objects are displayed one after the other following an object list. The way object are ordered inside this list thus affects transparency rendering, especially when some objects such as inner structures are positioned inside others. Object display order of selected objects can be changed using the two following controls. Pressing ``\includegraphics[scale=0.7]{images/pixmap/s_dessous_17.png}" will place all selected objects one step earlier in the object display list. Pressing ``\includegraphics[scale=0.7]{images/pixmap/s_dessus_17.png}" will place all selected objects one step further in the object display
-list.\\
+list (see for instance Fig. \ref{transparency}). \\
 
 See also ``Sort vertices from back to front (beware: slow rendering)" and ``Sort vertices from front to back (beware: slow rendering)" sections for further information.\\
 
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{images/Transparency/Transparency.pdf} 
+	\caption{Transparency rendering. A. 3 objects (cranium, left\_inner\_ear and right\_
+inner\_ear) are opened in this order, and the object ``cranium" is rendered with an alpha value of 40.
+The inner ears remain invisible, because ``cranium" is displayed before the two inner ears are. B: corresponding display object order (Show $\rightarrow$Display
+object order). C: the object ``Cranium" was selected and put downward in the object display list. Now the left inner ear is visible, as it is displayed before the cranium is. D: corresponding display object order. E: the object ``Cranium" was selected again, and put downward in the object display list. Now the two inner ears are
+visible, because they are both rendered before the cranium is. F: corresponding display object order.
+ 
+}
+\label{transparency}
+ 
+\end{figure}
 
-1) 3 objects (cranium, left\_inner\_ear and right\_
-inner\_ear) are opened in this order, and object
-``cranium" is rendered with an alpha value of 40.
-The inner ears remain invisible, because ``cranium"
-is displayed before the two inner ears\\
-Corresponding display object order (Show $\rightarrow$Display
-object order)\\
-2) ``Cranium" was selected, and button ``\includegraphics[scale=0.7]{images/pixmap/s_dessus_17.png}" was
-pressed. Now the left inner ear is visible, because
-it is displayed before the cranium.\\
-Corresponding display object order\\
 
-3) ``Cranium" was selected again, and button ``\includegraphics[scale=0.7]{images/pixmap/s_dessus_17.png}" was pressed. Now the two inner ears are
-visible, because they are displayed before the
-cranium.\\
-Corresponding display object order
 
 
 \subsection{Change object colour}
 Object colour can be changed using this option. A set of 13 predefined colours is available via this menu. Alternatively, you can edit object colour manually using the ``Object colour" control of the ``General options" window (click on menu ``Show $\rightarrow$General options$\rightarrow$").
 
 \subsection{Edit first selected object and aspect matrices}
-Object matrix window\\
+
+\noindent
+\begin{minipage}{0.6\textwidth}
 
 A selected surface is required . This opens the following window,
 in which the aspect and position matrices can be edited.
@@ -288,6 +342,15 @@ all selected objects.\\
 You can also access faster the ``Object Matrix" window by clicking
 on ``\includegraphics[scale=0.7]{images/pixmap/mat.png}"(edit first selected object position and aspect matrices).
 
+\end{minipage}    
+\begin{minipage}{0.4\textwidth}\centering
+  \includegraphics[scale=0.5]{images/File/Position2.png}
+ \captionof{figure}{Object matrix window}
+ \end{minipage} 
+\noindent
+
+
+
 \section{Grouping actions.}
 One or several meshes can be placed into one logical object using this option. This option is useful in the following two cases.\\
 - It allows an easy way to select/unselect together several objects (sometimes you do not want
@@ -295,7 +358,7 @@ to select/unselect manually multiple meshes one by one).\\
 - As a logical object’s aspect object and position matrices can be edited, placing 1 or several
 meshes into one logical object provides a convenient means to achieve deformation into
 a particular direction in 3D space (for instance to achieve mesh decompression in one
-direction.\\
+direction, see for instance Fig. \ref{grouping}).\\
 Logical objects can be also put into another logical object. Note that meshes contained into selected logical objects cannot be saved until they are ungrouped.
 
 \subsection{Group}
@@ -303,18 +366,18 @@ Select one or several meshes. Click on ``Edit selected surfaces$\rightarrow$Grou
 \subsection{Ungroup}
 Select one logical object. Click on ``Edit selected surfaces$\rightarrow$Grouping actions$\rightarrow$Ungroup". If the logical object aspect and position matrices are different from the identity matrices, the position and aspect matrices of the contained objects are edited in order to take into account position and aspect transformations that were applied to that logical object. Then the objects contained into the selected logical object are ungrouped, and the selected logical object is deleted.\\
 
-1) 7 objects are opened. Original matrices of ``bx\_md" object are shown (right mandible, selected).\\
-Corresponding display object order (Show $\rightarrow$Display object order)\\
-2) The 7 object are grouped. The group is drawn in brown. \\
-Corresponding display object order\\
 
-3) The position of the group is changed, as well as its aspect matrix. Note that the enclosed meshes cannot be saved in that state.\\
-Corresponding display object order\\
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Edit_selected_objects/11_group.pdf} 
+	\caption{
+Grouping objects. A1: 7 objects are opened. Original matrices of ``bx\_md" object are shown (right mandible, selected). A2: corresponding display object order (Show $\rightarrow$Display object order). B1: The 7 object are grouped. The group is drawn in brown. B2: corresponding display object order. C1: the position of the group is changed, as well as its aspect matrix. Note that the enclosed meshes cannot be saved in that state. C2: corresponding display object order. D1: objects are ungrouped. Modified matrices of ``bx\_md" object are shown (right mandible is selected). Now, the 7 meshes can be saved. D2: corresponding display object order (Show $\rightarrow$Display object order).}
+\label{grouping}
+ 
+\end{figure}
 
-4) Objects are ungrouped. Modified matrices of ``bx\_md" object are shown (right mandible is selected). Now, the 7 meshes can be saved.\\
-Corresponding display object order (Show $\rightarrow$Display object order)
 
-\section{Object list order..}
+\section{Object list order.}
 As explained earlier, the following options are useful when working with transparent objects. Normal and Target landmark ordering can also be edited using these options.
 \\As stated above, access to object display order can be reached via the menu ``Show$\rightarrow$Display object order".
 
@@ -327,13 +390,32 @@ All selected objects (landmarks or surfaces) will be placed one step further in 
 This action can also be reached via the following button:\includegraphics[scale=0.7]{images/pixmap/s_dessus_17.png}
 See tutorial ``working with landmarks" for further information.
 
-\section{Delete small objects.}
-\subsection{Threshold : a given number of triangles}
-Delete small objects window\\
 
+\section{Delete small objects.}
+
+\subsection{Threshold : a given number of triangles}
+\noindent
+\begin{minipage}{0.5\textwidth}
 Using this option, you may delete selected objects smaller than a given number of triangles.
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/Delete_small_1.png}
+ \captionof{figure}{Delete small objects window}
+ \end{minipage} 
+\noindent
+
+
+
 
 \subsection{Threshold : a given volume}
-Delete small objects window 2\\
-Using this option, you may delete selected objects smaller than
-a given volume.
+\noindent
+\begin{minipage}{0.5\textwidth}
+Using this option, you may delete selected objects smaller than a given volume.
+
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Edit_selected_objects/Delete_small_2.png}
+ \captionof{figure}{Delete small objects window 2}
+ \end{minipage} 
+\noindent
+
