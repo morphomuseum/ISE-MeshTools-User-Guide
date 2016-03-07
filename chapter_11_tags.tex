@@ -1,0 +1,261 @@
+
+\chapter{Tags}
+\minitoc 
+\section{Tagging surfaces with ISE-MeshTools.}
+25 tags (ordered between 0 and 24) can be given
+a label, a colour, a transparency, and be manually
+delimitated. A greater number of tags can be given
+to a surface using automatic tagging tools such as the ``Tag connected regions" tool, but these
+additionnal tags can not be labelled or manually edited. As stated earlier, in order to edit tags, it is advisable to activate the ``tag mode" (press ``\includegraphics[scale=0.7]{images/pixmap/Tag_select_mode.png}" button). In this mode, selected surfaces (on which you can interact and tag) can be drawn according to tag values at each vertex if ``tag display mode"is active. Press ``\includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window.png}" to activate ``tag diplay mode". When active, the tag colour scale shows up in the bottom-right part of the 3D rendering window (see Fig. \ref{tag_colour_scale}). Selected surfaces can be tagged using the pencil tag tool (``\includegraphics[scale=0.7]{images/pixmap/pencil.png}"), the magic wand tag tool ( ``\includegraphics[scale=0.7]{images/pixmap/magic_wand.png}"), the paint bucket tag tool (``\includegraphics[scale=0.7]{images/pixmap/Flood_fill.png}") or the lasso tag tool (``\includegraphics[scale=0.7]{images/pixmap/Lasso_plus.png}").
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Tags/Tag_colour_scale.png} 
+	\caption{Example of tag colour scale}
+\label{tag_colour_scale}
+ 
+\end{figure}
+
+
+
+\subsection{Pencil tag tool}
+\includegraphics[scale=0.7]{images/pixmap/pencil.png}\\
+\textbf{Pencil tag tool controls:}\\
+T pressed + left mouse click : tags the selected surface using currently active tag.\\
+T pressed + right click : tags the selected surface using tag 0 (usually used as ``exterior" tag). This option is often used to ``clear" a wrongly tagged part.\\
+\textbf{Pencil tag special option:}\\
+\noindent
+\begin{minipage}{0.6\textwidth}
+pencil tag size can be modified in the Tag option window. This
+option defines the tag propagation extension level, which starts at
+the vertex on which the mouse click is performed.
+\end{minipage}    
+\begin{minipage}{0.4\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Pencil_tag_size.png}
+ \captionof{figure}{Pencil tag size option}
+ \end{minipage} 
+\noindent
+
+
+
+\subsection{Magic wand tag tool}
+\includegraphics[scale=0.7]{images/pixmap/magic_wand.png}\\
+\textbf{Magic wand tag tool controls:}\\
+T pressed + left mouse click : tags the selected surface using currently active tag.
+T pressed + right click : tags the selected surface using tag 0 (usually used as ``exterior" tag). This option often is used to ``clear" a wrongly tagged part.\\
+\\
+\noindent
+\textbf{Magic wand special option:}\\
+\noindent
+\begin{minipage}{0.6\textwidth}
+Magic wand limit angle size can be modified in the Tag option window.
+\end{minipage}    
+\begin{minipage}{0.4\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Magic_wand_options.png}
+ \captionof{figure}{Magic wand limit angle}
+ \end{minipage} 
+\noindent
+ This option defines the tag propagation extension level, which starts at the vertex on which the mouse click is performed : propagation stops if the angle between the notmal of current vertex and the normal of the vertex on which the mouse click was done is found is greater than the defined
+angle.
+
+
+
+\subsection{Paint bucket tag tool}
+\includegraphics[scale=0.7]{images/pixmap/Flood_fill.png}\\
+\textbf{Paint bucket tag tool controls:}\\
+T pressed + left mouse click : tags the selected surface using currently active tag.\\
+T pressed + right click : tags the selected surface using tag 0 (usually used as ``exterior" tag). This option is often used to ``clear" a wrongly tagged part.\\
+Note : the paint bucket tag tool works exactly like the magic wand tag tool when the magic wand limit angle is set to 180°.
+
+\subsection{Pencil tag, magic wand and paint bucket common option}
+\noindent
+\textbf{Magic wand special option:}\\
+\noindent
+\begin{minipage}{0.6\textwidth}
+These 3 tools share a common option, available in the Tag option
+window, the ``allow colour override" checkbox.\end{minipage}    
+\begin{minipage}{0.4\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Allow_colour_override.png}
+ \captionof{figure}{Allow colour override option}
+ \end{minipage} 
+\noindent
+- If checked : no attention is paid to the colour of the vertex on
+which the left/right click was done during tag propagation.\\
+- If unchecked: tag propagation will stop if a tag colour different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
+\textbf{Important note:} be careful when using ``allow colour override" option \underline{checked} with the paint bucket tag tool or with the magic wand, as it will paint a large region uniformly (minutes or even hours of work may be lost in a single click, if you did not save your tagged surface in .vtk format earlier).
+
+\subsection{Lasso tag tool}
+\includegraphics[scale=0.7]{images/pixmap/Lasso_plus.png}\\
+The lasso tag tool can be used alone (option 1) or in combination with the pencil, the magic wand or the paint bucket (option 2). Once ``lasso tag tool" button is pressed, the mouse cursor changes to a cross in the 3D window. Additional mouse and keyboard controls become available (see Table \ref{lasso_tag_controls}). Once option 1 or option 2 is achieved, the usual mouse and keyboard controls become available
+again.
+
+\begin{table}
+\begin{tabularx}{\linewidth}{ | X | X | }
+\hline			
+Left click & Adds a segment to polygon (segments are drawn yellow) \\ \hline			
+
+Right click & Connects last segment to first segment. If two segments cross each other, lasso tag action is cancelled. Otherwise, the closed polygon is drawn red.\\ \hline			
+
+Option 1: once polygon is closed, middle click or ``C" + right click. & when the click falls \textbf{inside}/\textit{outside} the closed red
+polygon: the region falling \underline{inside} the polygon
+\textbf{is tagged}/\textit{is not tagged} using the active tag
+colour, respectively. The region falling \underline{outside}
+the polygon \textbf{is not tagged}/\textit{is tagged} using the
+active tag colour, respectively.
+
+\\ \hline			
+Option 2: once polygon is closed: Press ``T" + left or Press ``T" +right click  & The selected tag tool (magic wand or paint bucket) is be used, but tag propagation will not
+cross over polygon edges.
+\\ \hline	
+		
+
+\end{tabularx}
+\caption{Lasso tag controls}	
+\label{lasso_tag_controls}	
+\end{table}
+
+\section{Show tag options window.}
+
+The ``Tag options" window (see Fig. \ref{tag_options_window}) can also be opened by clicking on ``\includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window2.png}" .
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Tags/Tags.png} 
+	\caption{Tag options window.}
+\label{tag_options_window}
+ 
+\end{figure}
+\noindent
+\textbf{Available controls:}\\
+\\
+\noindent
+\textit{\underline{Define tag labels, colours and transparency group:}}\\
+\textit{Labels:} you may define tag labels for all 25 available tags.\\
+\textit{Active tag:} you may define the currently active tag.\\
+\textit{Colour}: you may define the colour for all 25 available tags.\\
+\textit{Alpha:} you may define the transparency for all 25 available tags.\\
+\textit{Clear:} clears the tag region (all vertices of this region will be set to 0 = Tag 00).
+\textit{Fill holes:} opens the ``Fill holes" window (see Fig. \ref{fill_holes_window}). Pressing ok will fill all regions adjacent to the concerned tag region (Tag id) containing less than ``Max num" vertices (see for instance Fig. \ref{tag_fill_holes_example}).
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Tags/Fill Holes.png} 
+	\caption{Fill Holes window.}
+\label{fill_holes_window}
+ \end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{images/Tags/Fill_holes2.png} 
+	\caption{Exemple of tag hole filling. Left : cranium of \textit{Microcebus murinus} presenting a parietal region tagged mostly in yellow, and presenting red ``holes". Right : ``holes" present in the yellow region were filled using ``Max num vertices" = 4000 option.
+}
+\label{tag_fill_holes_example}
+ \end{figure}
+\\
+\noindent
+\textit{\underline{Tag tools group:}}
+\textit{Pencil tag size:} This option defines the tag propagation extension
+level of the pencil tag tool. Magic wand limit angle : This option defines the tag propagation extension level of the magic wand tag tool (see above for further explanations).\\
+\textit{Allow colour override:} The pencil, magic wand and paint bucket tag tools share this option. If active, tag propagation will stop if a tag colour different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
+\\
+\noindent
+\textit{\underline{Tag extraction/deletion:}}\\
+For a given triangle : \textit{All points must satisfy condition} / \textbf{One point must satisfy condition.} This option defines the extent to which region extraction or deletion is performed at the boundaries of the concerned tagged region.\\\\
+\noindent
+Exemple of tag merging. Left : cranium of Microcebus murinus presenting the parietal region
+tagged in yellow, the frontal region tagged in orange. Right : frontal tag region was merged into the parietal region.
+
+
+\section{Convert RGB colours to Tags.}
+Convert RGB scalars to TAGS window
+
+This option may be useful when you just
+have opened a .ply file already containing
+RGB colours (for instance, let us suppose
+that you have painted a surface using
+MeshLab software, and that you wish to
+convert those colours into tags). RGB
+colours contained in .ply files are inserted
+inside the RGB scalar when opened with
+MeshTools. I you plan to transform those RGB values into tags with MeshTools, be aware of the fact
+that RGB scalar is reinitialised extremely frequently: for instance as soon as you activate the tag or the scalar display mode, or whenever you change the objects' colour rendering. So I advise you to use the present option only immediatly after opening the surface.
+You have two options :\\
+\textbf{\underline{1) exact colour match}}\\
+$\rightarrow$ In that case, in order to be given a tag value other than Tag 00, a vertex must satisfy the following condition: its RGB scalar value should match one of the 25 colours defined in the ``Tags options" window. If a vertex does not satisfy this condition, it is given the Tag 00 value.\\
+\textbf{\underline{2) Define tags following the first 25 distinct colours found in RGB scalar}}\\
+$\rightarrow$ In that case the following sequence of operations is applied:\\
+a) MeshTools searches for the first 25 distinct RGB colours inside the object; MeshTools gives them numbers ranging from 0 to 24. Important : if more than 25 distinct colours exist in the RGB scalar, they are not given a tag value.\\
+b) MeshTools updates tag colours according to the 25 first colours found in the RGB scalar.\\
+c) All vertices are given a Tag value following the procedure defined above in \#1 (exact colour match).\\
+Advantages of \#1 : if you have well prepared your RGB colours so that they matches well those associated with the 25 tags, this procedure will work perfectly.\\
+Advantages of \#2 : if you have up to 25 distinct RGB colours in your .ply file and if you do not want to bother to edit manually the 25 tags and give them a RGB colour, you will save time with this procedure. 
+\\Drawbacks of both methods: if your file contains more than 25 distinct RGB colours, you will definitely lose information in the process.
+\\Be also aware that when saving .ply files with ISE-MeshTools, the RGB coulours saved within the file are those currently rendered in the 3D screen. If you spent time to colour a 3D surface in .ply format (for instance with MeshLab) and you have opened it subsequently with ISE-MeshTools and have saved it again, there is a high probability that all the initial RGB colours will have been replaced with those rendered in ISE-MeshTools.
+
+
+\section{Merge tags.}
+Two tagged regions can be merged into a single one
+All source tags will be put into target tags.
+
+\section{Tag connected regions.}
+This option implies vtkPolyDataConnectivityFilter. This filter will tag all non-connected regions of the
+selected input surface into different colours.
+
+
+Left: original surface. Right: the same mesh automatically tagged into 304 non connected regions.
+
+\section{Extract.}
+Note: The ``Tag extraction/deletion" option in the Tag options window will affect the boundaries of
+the extracted regions.
+
+Exemple of tag extraction. Left : cranium of Microcebus murinus presenting the frontal region
+tagged in orange. Right : frontal tag region was extracted into a new surface object.
+
+\subsection{Extract active tag corresponding region}
+Using this option, a single mesh will be created out of the active tag corresponding region of the
+selected object.
+
+\subsection{Extract all tagged regions as several new objects}
+In order to prevent extremely small surface objects to be
+created, a minimal region size parameter for tag extraction is
+asked.
+
+Extract all tagged regions window.
+
+
+Left: original tagged surface. Right: all tagged regions were extracted into single independent
+surface objects
+
+\subsection{Extract one tagged region as 1 new object}
+This option works similarly as the ``Extract active tag
+corresponding region" option mentioned above, except that
+you can reach tag id values beyond the 25 reachable in the
+Tag options window.
+
+Extract tagged region window.
+
+\subsection{Extract tag or other scalar range as 1 new object}
+Using this option, you may extract several tagged regions
+into one single mesh, or all regions ranging from a minimal
+value up to a maximal value for a given scalar into a single
+new mesh.
+
+Extract scalar range window.
+
+Extraction of the region showing an enamel thickness greater than 1 mm. Specimen : enamel surface of SP07 specimen (see ``Scalars" and ``Acknowledgement" sections for details regarding this specimen). Image credit : Mona Le Luyer (PACEA, Bordeaux).
+
+
+
+\section{Delete.}
+Note: The ``Tag extraction/deletion" option in the Tag options window will affect the boundaries of the deleted regions.
+
+\subsection{Delete one tagged region}
+This option works similarly as the ``Extract one tagged
+region" option mentioned above, except that it deletes the
+selected tag region.
+
+Delete tagged region window.
+
+\subsection{Delete active tag corresponding region}
+This option works similarly as the ``Extract active tag corresponding region" option mentioned above, except that it deletes the corresponding active tag region.
+
+\subsection{Delete all tagged regions except TAG 00}
+This option deletes all tagged region except the vertices tagged with TAG 00 (exterior).
