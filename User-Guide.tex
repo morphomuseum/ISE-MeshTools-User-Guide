@@ -1,7 +1,7 @@
 %Préambule du document :
 \documentclass[12pt, a4paper]{book}
 %\usepackage[latin1]{inputenc} 
-
+\usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc} % | "`pipe"' character
 \usepackage{graphicx}
 \usepackage{titling}
@@ -113,12 +113,16 @@ ISE-MeshTools is entirely written in C++, and uses the visualization library VTK
 		 \input{chapter_09_landmarks.tex}
 		 \input{chapter_10_scalars.tex}
 		 \input{chapter_11_tags.tex}
-		\input{chapter_12_show.tex}
+		 \input{chapter_12_show.tex}
+		 \input{chapter_13_about.tex}
+		 \input{chapter_14_acknowledgements.tex}
 %\nocite{*}   % All bibliography items appear without citation in the text
 
 \cleardoublepage
 \phantomsection
-\addcontentsline{toc}{section}{References}
+
+\addcontentsline{toc}{chapter}{References}
+%\addcontentsline{toc}{section}{References}
   \bibliography{References/UsersGuide}		
 \end{document} 
 
