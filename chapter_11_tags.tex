@@ -144,8 +144,8 @@ The ``Tag options" window (see Fig. \ref{tag_options_window}) can also be opened
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.3]{images/Tags/Fill_holes2.png} 
-	\caption{Exemple of tag hole filling. Left : cranium of \textit{Microcebus murinus} presenting a parietal region tagged mostly in yellow, and presenting red ``holes". Right : ``holes" present in the yellow region were filled using ``Max num vertices" = 4000 option.
+  \includegraphics[scale=0.25]{images/Tags/Fill_holes2.png} 
+	\caption{Example of tag hole filling. Left : cranium of \textit{Microcebus murinus} presenting a parietal region tagged mostly in yellow, and presenting red ``holes". Right : ``holes" present in the yellow region were filled using ``Max num vertices" = 4000 option.
 }
 \label{tag_fill_holes_example}
  \end{figure}
@@ -160,30 +160,26 @@ level of the pencil tag tool. Magic wand limit angle : This option defines the t
 \textit{\underline{Tag extraction/deletion:}}\\
 For a given triangle : \textit{All points must satisfy condition} / \textbf{One point must satisfy condition.} This option defines the extent to which region extraction or deletion is performed at the boundaries of the concerned tagged region.\\\\
 \noindent
-Exemple of tag merging. Left : cranium of Microcebus murinus presenting the parietal region
+Example of tag merging. Left : cranium of \textit{Microcebus murinus} presenting the parietal region
 tagged in yellow, the frontal region tagged in orange. Right : frontal tag region was merged into the parietal region.
 
 
 \section{Convert RGB colours to Tags.}
-Convert RGB scalars to TAGS window
 
-This option may be useful when you just
-have opened a .ply file already containing
-RGB colours (for instance, let us suppose
-that you have painted a surface using
-MeshLab software, and that you wish to
-convert those colours into tags). RGB
-colours contained in .ply files are inserted
-inside the RGB scalar when opened with
-MeshTools. I you plan to transform those RGB values into tags with MeshTools, be aware of the fact
-that RGB scalar is reinitialised extremely frequently: for instance as soon as you activate the tag or the scalar display mode, or whenever you change the objects' colour rendering. So I advise you to use the present option only immediatly after opening the surface.
+This option (see Fig. \ref{rgb_conversion}) may be useful when you just have opened a .ply file already containing RGB colours (for instance, let us suppose that you have painted a surface using MeshLab software, and that you wish to convert those colours into tags). RGB colours contained in .ply files are inserted inside the RGB scalar when opened with MeshTools. I you plan to transform those RGB values into tags with MeshTools, be aware of the fact that RGB scalar is reinitialised extremely frequently: for instance as soon as you activate the tag or the scalar display mode, or whenever you change the objects' colour rendering. So I advise you to use the present option only immediately after opening the surface.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Tags/Convert.png} 
+	\caption{Convert RGB scalars to TAGS window}
+\label{rgb_conversion}
+\end{figure}
 You have two options :\\
 \textbf{\underline{1) exact colour match}}\\
 $\rightarrow$ In that case, in order to be given a tag value other than Tag 00, a vertex must satisfy the following condition: its RGB scalar value should match one of the 25 colours defined in the ``Tags options" window. If a vertex does not satisfy this condition, it is given the Tag 00 value.\\
 \textbf{\underline{2) Define tags following the first 25 distinct colours found in RGB scalar}}\\
 $\rightarrow$ In that case the following sequence of operations is applied:\\
-a) MeshTools searches for the first 25 distinct RGB colours inside the object; MeshTools gives them numbers ranging from 0 to 24. Important : if more than 25 distinct colours exist in the RGB scalar, they are not given a tag value.\\
-b) MeshTools updates tag colours according to the 25 first colours found in the RGB scalar.\\
+a) ISE-MeshTools searches for the first 25 distinct RGB colours inside the object; ISE-MeshTools gives them numbers ranging from 0 to 24. Important : if more than 25 distinct colours exist in the RGB scalar, they are not given a tag value.\\
+b) ISE-MeshTools updates tag colours according to the 25 first colours found in the RGB scalar.\\
 c) All vertices are given a Tag value following the procedure defined above in \#1 (exact colour match).\\
 Advantages of \#1 : if you have well prepared your RGB colours so that they matches well those associated with the 25 tags, this procedure will work perfectly.\\
 Advantages of \#2 : if you have up to 25 distinct RGB colours in your .ply file and if you do not want to bother to edit manually the 25 tags and give them a RGB colour, you will save time with this procedure. 
@@ -192,67 +188,141 @@ Advantages of \#2 : if you have up to 25 distinct RGB colours in your .ply file 
 
 
 \section{Merge tags.}
+\noindent
+\begin{minipage}{0.5\textwidth}
 Two tagged regions can be merged into a single one
 All source tags will be put into target tags.
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Merge_tags.png}
+ \captionof{figure}{Merge tags window}
+ \end{minipage} 
+\noindent
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Tags/Merge.png} 
+	\caption{Example of tag merging. Left : cranium of \textit{Microcebus murinus} presenting the parietal region
+tagged in yellow, the frontal region tagged in orange. Right : frontal tag region was merged into
+the parietal region.}
+\label{merge_tags}
+ 
+\end{figure}
+
+
 
 \section{Tag connected regions.}
 This option implies vtkPolyDataConnectivityFilter. This filter will tag all non-connected regions of the
-selected input surface into different colours.
+selected input surface into different colours (see Fig. \ref{tag_connected}).
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.45]{images/Tags/Lemur_tag_input_output.png} 
+	\caption{Left: original surface. Right: the same mesh automatically tagged into 304 non connected regions.}
+\label{tag_connected}
+ 
+\end{figure}
 
 
-Left: original surface. Right: the same mesh automatically tagged into 304 non connected regions.
 
 \section{Extract.}
-Note: The ``Tag extraction/deletion" option in the Tag options window will affect the boundaries of
-the extracted regions.
 
-Exemple of tag extraction. Left : cranium of Microcebus murinus presenting the frontal region
-tagged in orange. Right : frontal tag region was extracted into a new surface object.
+
+Note: The ``Tag extraction/deletion" option in the Tag options window will affect the boundaries of
+the extracted regions (see Fig. \ref{tag_extraction}).
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.35]{images/Tags/Extract_tag.png} 
+	\caption{Example of tag extraction. Left : cranium of \textit{Microcebus murinus} presenting the frontal region
+tagged in orange. Right : frontal tag region was extracted into a new surface object.}
+\label{tag_extraction}
+ 
+\end{figure}
+
+
 
 \subsection{Extract active tag corresponding region}
-Using this option, a single mesh will be created out of the active tag corresponding region of the
-selected object.
+Using this window, a single mesh will be created out of the active tag corresponding region of the
+selected object. 
 
 \subsection{Extract all tagged regions as several new objects}
-In order to prevent extremely small surface objects to be
-created, a minimal region size parameter for tag extraction is
-asked.
+\noindent
+\begin{minipage}{0.5\textwidth}
+Using this window (see \ref{extract_all_window}), all meshes will be created out all different existing tags. In order to prevent extremely small surface objects to be created, a minimal region size parameter for tag extraction is asked. For an example, see Fig. \ref{extract_all}.\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Extract_all_tagged_regions.png}
+ \captionof{figure}{Extract all tagged regions window.}
+\label{extract_all_window}
 
-Extract all tagged regions window.
-
-
-Left: original tagged surface. Right: all tagged regions were extracted into single independent
-surface objects
+ \end{minipage} 
+\noindent
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Tags/Extracted_tag2.png} 
+	\caption{All tags extraction. Left: original tagged surface. Right: all tagged regions were extracted into single independent surface objects}
+\label{extract_all}
+ 
+\end{figure}
 
 \subsection{Extract one tagged region as 1 new object}
+\noindent
+\begin{minipage}{0.5\textwidth}
 This option works similarly as the ``Extract active tag
 corresponding region" option mentioned above, except that
 you can reach tag id values beyond the 25 reachable in the
 Tag options window.
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Extract_one_tagged_region.png}
+ \captionof{figure}{Extract tagged region window.}
 
-Extract tagged region window.
+
+ \end{minipage} 
+\noindent
+
+
 
 \subsection{Extract tag or other scalar range as 1 new object}
+\noindent
+\begin{minipage}{0.5\textwidth}
 Using this option, you may extract several tagged regions
 into one single mesh, or all regions ranging from a minimal
 value up to a maximal value for a given scalar into a single
-new mesh.
+new mesh. See for instance Fig. \ref{extract_scalar_range}.
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Extract_scalar_range.png}
+ \captionof{figure}{Extract scalar range window.}
+ \end{minipage} 
+\noindent
 
-Extract scalar range window.
-
-Extraction of the region showing an enamel thickness greater than 1 mm. Specimen : enamel surface of SP07 specimen (see ``Scalars" and ``Acknowledgement" sections for details regarding this specimen). Image credit : Mona Le Luyer (PACEA, Bordeaux).
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.25]{images/Tags/Extract_range.png} 
+	\caption{Extraction of the region showing an enamel thickness greater than 1 mm. Specimen : enamel surface of SP07 specimen (see ``Scalars" and ``Acknowledgement" sections for details regarding this specimen). Image credit : Mona Le Luyer (PACEA, Bordeaux).}
+\label{extract_scalar_range}
+ 
+\end{figure}
 
 
 
 \section{Delete.}
-Note: The ``Tag extraction/deletion" option in the Tag options window will affect the boundaries of the deleted regions.
 
+Note: The ``Tag extraction/deletion" option in the Tag options window will affect the boundaries of the deleted regions.
 \subsection{Delete one tagged region}
+\noindent
+\begin{minipage}{0.5\textwidth}
 This option works similarly as the ``Extract one tagged
 region" option mentioned above, except that it deletes the
 selected tag region.
+\end{minipage}    
+\begin{minipage}{0.5\textwidth}\centering
+  \includegraphics[scale=0.5]{images/Tags/Delete_one_tagged_region.png}
+ \captionof{figure}{Delete tagged region window.}
+ \end{minipage} 
+\noindent
 
-Delete tagged region window.
+
+
 
 \subsection{Delete active tag corresponding region}
 This option works similarly as the ``Extract active tag corresponding region" option mentioned above, except that it deletes the corresponding active tag region.
