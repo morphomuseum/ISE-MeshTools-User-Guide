@@ -2,7 +2,7 @@
 \documentclass[12pt, a4paper]{book}
 %\usepackage[latin1]{inputenc} 
 
-%\usepackage[T1]{fontenc} % | character
+\usepackage[T1]{fontenc} % | "`pipe"' character
 \usepackage{graphicx}
 \usepackage{titling}
 \usepackage{amssymb} 
@@ -19,6 +19,8 @@
 \usepackage{hyperref} %link references (toc, citations) inside document
 \usepackage{natbib} % to cite with parentheses and plain text et only year if you please...
 \usepackage{amsmath}
+ \usepackage{fixltx2e} % allows overrightarrow to be in caption
+ \MakeRobust{\overrightarrow}
 
 
 
