@@ -150,7 +150,7 @@ selected object position and aspect matrices".
 
 
 
-This opens the ``Object Matrix" window, in which the aspect and position matrices can be edited. See ``Edit selected surfaces" corresponding section (Rendering modifications$\rightarrow$ edit first selected object position and aspect matrices) for further information.
+This opens the ``Object Matrix" window, in which the aspect and position matrices can be edited. See ``Edit selected surfaces" section \ref{edit_mat_section} (Rendering modifications$\rightarrow$ edit first selected object position and aspect matrices) for further information.
 
 
 \section{Project}
@@ -257,10 +257,9 @@ unselected ``normal" landmarks (the red ones).
 
 You may decide whether you wish to save only selected ``target" landmarks or all selected and
 unselected ``target" landmarks (the red ones).
-The section ``Menu: Edit Selected Landmarks" and the tutorial ``working with landmarks" contain
-further information regarding landmark digitization with ISE-MeshTools
+The ``Landmarks" chapter (chapter \ref{landmark_chapter}) and the tutorial ``working with landmarks" contain further information regarding landmark digitization with ISE-MeshTools
 
-\section{Curves}
+\section{Curves}\label{file_curve_section}
 3D Curves are constructed in ISE-MeshTools using 2 series of landmarks : a series of ``normal"
 landmarks, and a series of ``target" landmarks of equal sizes. ``Target" landmarks are referred to as
 ``curve handles", when they are used to construct curves (``Target" landmarks can also be used to
@@ -286,8 +285,8 @@ The explicit form of the curve is :
 B(t) = (1-t)^{3}Ln + 3(1-t)^{3}tHn + 3(1-t)t^{2}H'n+1 +t^{3}Ln+1, t \in[0,1]
 \end{equation}
 In order to be able to digitize several curves using a given set of normal and target landmarks,
-``normal" landmarks curves can be given 4 flags (see section "Edit Selected landmarks"$\rightarrow$ Landmarks
-involved into curves for further details):\\
+``normal" landmarks curves can be given 4 flags (see section \ref{landmarks_curves_section} ``Landmarks $\rightarrow$ Landmarks
+involved into curves" for further details):\\
 Flag ``0" : landmark is placed inside the curve (drawn ``red").\\
 Flag ``1" : landmark is a curve start (drawn ``green").\\
 Flag ``2" : landmark is placed inside the curve, and is a curve ``milestone" (drawn blue) .\\
@@ -344,7 +343,7 @@ following message appears:\\
 
 Each curve /curve segment length can be saved as a .txt file
 using this option.
-The section ``Menu: Edit Selected Landmarks" and the
+The ``Landmarks" chapter (chapter \ref{landmark_chapter}) and the
 tutorial ``Working with curves" contain further important
 information regarding curve digitization with ISE-MeshTools.
 
@@ -360,8 +359,8 @@ information regarding curve digitization with ISE-MeshTools.
 
 \begin{minipage}{0.55\textwidth}
 - Tag colours and names can be edited interactively by
-clicking on \includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window2.png}, which opens the tag window (see the section
-``Menu Tags" and the tutorial ``Working with tags" for
+clicking on \includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window2.png}, which opens the tag window (see the chapter
+``Tags" (chapter \ref{tags_chapter}) and the tutorial ``Working with tags" for
 further information).\\
 - By default, Tags are not visible. To activate/deactivate tag
 display, click on \includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window.png}\\

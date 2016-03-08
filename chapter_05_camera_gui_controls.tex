@@ -2,6 +2,17 @@
 \minitoc  
 
  \section{Camera controls}
+\subsection{Camera rotation centre}
+By default, the camera rotates around the origin of the coordinate system (x=0, y=0, z=0), but by pressing ``\includegraphics[scale=0.7]{images/pixmap/Move_cam.png}", the camera will revolve around the centre of mass of all opened objects. The latter option is useful when the centre of mass of an object (or of several ones) is far from the origin of the coordinate system. The grid is drawn using different colours depending on the camera rotation centre (see Fig. \ref{grid_colour}). The camera centre can also be set at the location of one of the first 10 ``normal" landmarks (see section \ref{camera_centre_at}).
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.4]{images/GUI/Camera_rotation_centre.png} 
+	\caption{Grid display coulour. Left: when the camera revolves around (x=0, y=0, z=0), the grid is displayed in orange. Right: when the camera revolves around the centre of mass of all opened objects, the grid has a blue layout.}
+\label{grid_colour}
+ 
+\end{figure}
+
 \subsection{Zoom}
 There are three ways to modify the ``zoom" in ISE-MeshTools :
 

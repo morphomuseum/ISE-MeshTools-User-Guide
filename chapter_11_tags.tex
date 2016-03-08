@@ -1,5 +1,5 @@
 
-\chapter{Tags}
+\chapter{Tags}\label{tags_chapter}
 \minitoc 
 \section{Tagging surfaces with ISE-MeshTools.}
 25 tags (ordered between 0 and 24) can be given
@@ -64,8 +64,8 @@ angle.
 \includegraphics[scale=0.7]{images/pixmap/Flood_fill.png}\\
 \textbf{Paint bucket tag tool controls:}\\
 T pressed + left mouse click : tags the selected surface using currently active tag.\\
-T pressed + right click : tags the selected surface using tag 0 (usually used as ``exterior" tag). This option is often used to ``clear" a wrongly tagged part.\\
-Note : the paint bucket tag tool works exactly like the magic wand tag tool when the magic wand limit angle is set to 180°.
+T pressed + right click : tags the selected surface using tag 0 (usually used as ``exterior" tag). This option is often used to ``clear" a wrongly tagged part.\\ 
+Note : the paint bucket tag tool works exactly like the magic wand tag tool when the magic wand limit angle is set to 180\degree.
 
 \subsection{Pencil tag, magic wand and paint bucket common option}
 \noindent
@@ -84,7 +84,7 @@ which the left/right click was done during tag propagation.\\
 - If unchecked: tag propagation will stop if a tag colour different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
 \textbf{Important note:} be careful when using ``allow colour override" option \underline{checked} with the paint bucket tag tool or with the magic wand, as it will paint a large region uniformly (minutes or even hours of work may be lost in a single click, if you did not save your tagged surface in .vtk format earlier).
 
-\subsection{Lasso tag tool}
+\subsection{Lasso tag tool} \label{lasso_tag_section}
 \includegraphics[scale=0.7]{images/pixmap/Lasso_plus.png}\\
 The lasso tag tool can be used alone (option 1) or in combination with the pencil, the magic wand or the paint bucket (option 2). Once ``lasso tag tool" button is pressed, the mouse cursor changes to a cross in the 3D window. Additional mouse and keyboard controls become available (see Table \ref{lasso_tag_controls}). Once option 1 or option 2 is achieved, the usual mouse and keyboard controls become available
 again.

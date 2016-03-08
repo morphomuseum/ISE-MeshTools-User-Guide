@@ -89,11 +89,11 @@ The buttons \includegraphics[scale=0.7]{images/pixmap/Clipping_plane_z0.png} and
 - \includegraphics[scale=0.7]{images/pixmap/Clipping_plane_z0.png}: the clipping plane is placed at z = 0 (all objects having a z coordinate along z viewing axis smaller than 0 are hidden).\\
 \noindent- \includegraphics[scale=0.7]{images/pixmap/Clipping_plane_normal.png}: the clipping plane is replaced at its original value : z= - camera.far / 2. This value permits to view objects having positive and negative coordinates along z viewing axis.
 
-\subsection{Camera rotation centre at}
+\subsection{Camera rotation centre at}\label{camera_centre_at}
 
 
 
-Camera rotation centre can be modified at the origin (x=0, y=0, z=0) or at the location of one of the first 10 ``normal" landmarks.
+Camera rotation centre can be set at the origin of the coordinate system (x=0, y=0, z=0) or at the location of one of the first 10 ``normal" landmarks.
 
 \subsection{Set 100 pixels in mm}
 
@@ -152,7 +152,7 @@ This option can be useful to inspect the structure of the surface.
 
 \noindent
 \begin{minipage}{0.55\textwidth}
-\subsection{Sort vertices from back to front}
+\subsection{Sort vertices from back to front}\label{sort_back_front}
 This option is (only) useful when working with transparent surfaces, in the case you want to display all surface inner structures. When active, whenever the camera of the
 object is moved, vertices will be sorted in order to be displayed from back to front. This is the way transparency is achieved in OpenGL. As a consequence, rendering fluidity
 becomes slow when working with heavy surfaces and/or a large number of objects. To change the transparency of an object, select an object, and reach ``Edit selected surfaces $\rightarrow$
@@ -175,7 +175,7 @@ inside structures.
 \noindent
 \begin{minipage}{0.55\textwidth}
 
-\subsection{Sort vertices from front to back}
+\subsection{Sort vertices from front to back}\label{sort_front_back}
 This option is (only) useful when working with transparent surfaces, and when you do not want to display too many inner structures. When active, whenever the camera of the object is moved, vertices will be sorted in order to be displayed from front to back. As a consequence, rendering fluidity becomes slow when working with heavy surfaces and/or a large number of objects. Alternatively, in order to increase rendering fluidity, you may chose not to use the ``Sort vertices from front to back (beware: slow rendering)" rendering option, but to sort
 episodically the vertices from front to back by pressing the button \includegraphics[scale=0.7]{images/pixmap/Sort_vertices02.png}.
 
@@ -307,7 +307,7 @@ Flag length and colour settings can be defined in thissubsection. Once placed on
 ``Normal" and ``target" landmark numbers are displayed by default. For illustration purposes, you may sometimes need to hide landmark numbers.
 
 \section{Draw curves}
-Activate/deactivate this option to draw/hide 3D Bezier curves passing through ``normal" landmarks. See the tutorial ``working with curves" section for further details regarding curve digitization with ISEMeshTools.
+Activate/deactivate this option to draw/hide 3D Bezier curves passing through ``normal" landmarks. See the tutorial ``working with curves" for further details regarding curve digitization with ISEMeshTools.
 
 \section{Orientation labels}
 
