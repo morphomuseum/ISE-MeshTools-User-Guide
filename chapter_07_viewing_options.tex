@@ -282,26 +282,25 @@ Grid rendering can be edited to reach the desired size/square
 
 
 
-\noindent
-\begin{minipage}{0.55\textwidth}
-
-
 \section{Landmark and flag rendering options}
-The landmark and flag options window contains the following sections:
+The landmark and flag options window (see Fig. \ref{landmarks_flags_options}) contains the following sections:
 
 \subsection{Landmarks rendering}
-``Normal" and ``Target" landmarks can be drawn as spheres or as needles. Landmark display size can be also edited in this section.
-\end{minipage}  
- \begin{minipage}{0.45\textwidth}\centering
-\includegraphics[scale=0.5]{images/Viewing_options/Landmark_options.png}
- \captionof{figure}{Landmark and flag options window}
+``Normal" and ``Target" landmarks can be drawn as spheres or as needles. Landmark display size can be chosen to be adjusted automatically (default behaviour) or edited manually (when you feel that the automatic adjustment does not meet your needs) also edited manually in this section.
 
- \end{minipage} 
-\noindent
+
+
 \subsection{Flags settings}
 Flag length and colour settings can be defined in thissubsection. Once placed on a surface and selected, the colour, the length and the label of the flag can be changed by pressing
-\includegraphics[scale=0.7]{images/pixmap/Flag02.png}
+\includegraphics[scale=0.7]{images/pixmap/Flag02.png}.
 
+
+\begin{figure}
+  \centering  
+ \includegraphics[scale=0.5]{images/Viewing_options/Landmark_options.png}
+ \captionof{figure}{Landmark and flag options window.}
+\label{landmarks_flags_options}
+\end{figure}
 
 \section{Display landmark numbers}
 ``Normal" and ``target" landmark numbers are displayed by default. For illustration purposes, you may sometimes need to hide landmark numbers.
@@ -327,5 +326,6 @@ window.
 
 
 
-
+\section{VBO activate (GPU acceleration)}
+By default, ISE-MeshTools does not use the graphic card to display 3D objects, which slows down dramatically the rendering speed of heavy 3D meshes and that of tagged meshes. However, we have chosen not to activate the ``VBO" rendering option by default, as we have experienced that it causes ISE-MeshTools to crash on old computers or on some others which have not up to date graphic card drivers. By activating the graphic card acceleration option (VBO activate), you will probably find out that ISE-MeshTools is much more fluid to work with.\\ This feature was implemented by Cécile Peladan.
 

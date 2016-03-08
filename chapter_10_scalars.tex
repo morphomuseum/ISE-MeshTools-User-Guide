@@ -9,7 +9,7 @@ When active, the rainbow colour scale (see Fig. \ref{rainbow_colour_scale}) show
 bottom-right part of the 3D rendering window.
 \end{minipage}    
 \begin{minipage}{0.5\textwidth}\centering
-  \includegraphics[scale=0.5]{images/Scalars_renreding/Colour scale.png}
+  \includegraphics[scale=0.5]{images/Scalars_renreding/Colour_scale.png}
  \captionof{figure}{Rainbow colour scale, showing a
 ``min" range display value of -1, a
 ``max" range display value of 1, and a
@@ -21,8 +21,16 @@ middle range display value of 0.
 
 
 \section{Show scalar rendering options window.}
-\noindent
-\begin{minipage}{0.5\textwidth}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Scalars_renreding/Colour_scale_rendering_window.png}
+\caption{Scalar rendering options window}	
+\label{Scalar_rendering_options_window}
+ \end{figure}
+
+
 Displayed scalars and scalar associated
 colour scales can aslo be onpened by
 clicking on ``\includegraphics[scale=0.7]{images/pixmap/edit_color_scale.png}" (see Fig. \ref{Scalar_rendering_options_window}).\\
@@ -33,14 +41,9 @@ the available scalars (see below for further
 information).\\
 \textit{Chose colour scale}: please chose among
 the available colour scales (see below for
-further information).
-\end{minipage}    
-\begin{minipage}{0.5\textwidth}\centering
-  \includegraphics[scale=0.5]{images/Scalars_renreding/Colour_scale_rendering_window.png}
-\captionof{figure}{Scalar rendering options window}	
-\label{Scalar_rendering_options_window}
- \end{minipage} 
-\noindent
+further information).\\
+
+
 \textit{Init scalar}: set current active scalar values to ``0" for all selected objects.
 Remove scalar : removes active scalar for all selected objects. This option is useful if you plan to save surfaces in the .vtk format and do not want ISE-MeshTools to save associated scalar values (this will save some disk space).\\
 \textit{min}: changes the minimal value of the active colour scale.\\
@@ -78,7 +81,7 @@ is used.
 
 
 \section{Scalars : compute vertice curvature.}
-\section{Scalars: distance from camera (Depth).}
+
 \noindent
 \begin{minipage}{0.5\textwidth}
 vtkCurvatures filter is implied in this option.\\
