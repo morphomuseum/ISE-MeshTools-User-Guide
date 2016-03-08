@@ -154,17 +154,15 @@ This opens the ``Object Matrix" window, in which the aspect and position matrice
 
 
 \section{Project}
-
-
-
-
-When working with multiple surface objects,
+When working with multiple surface objects, 
 loading surfaces and associated positions one
-by one becomes fastidious. You may open and
-save series of meshes and associated position
-matrices using this menu.
-``project" files (.ntw) files are organized the
-following way (see Fig. \ref{project_file}):
+by one becomes fastidious. Besides, after having digitized landmarks, flags or having set tag names and colours, or having defined orientation labels, you may wish to open or save this information along with surface files. You may open and
+save series of meshes and associated position matrices, landmarks, flags, tag colours and labels and orientation labels using this menu. ``Project" files (.ntw) files are organized the
+following way (see Fig. \ref{project_file}):\\
+- Optional: name of orientation label file (.ori)\\
+- Optional: name of tag file (.tag)\\
+- Optional: name of flag file (.flg)\\
+- Optional: name of landmak file (.lmk, .ver, .stv or .cur)\\
 - Name of surface 1 file\\
 - Name of position 1 file associated to surface 1\\
 - Surface 1 RGB colour and transparency\\
@@ -172,8 +170,6 @@ following way (see Fig. \ref{project_file}):
 - Name of position 2 file associated to surface 2\\
 - Surface 2 RGB colour and transparency (etc...)\\
  
-
-
 Surface files can be of the following types : .stl, .vtk, .ply and .obj\\
 ``.ntw" files can be constructed manually, providing that the refered surface and position files exist.
 
@@ -181,8 +177,8 @@ Surface files can be of the following types : .stl, .vtk, .ply and .obj\\
 
 \begin{figure}
   \centering  
- \includegraphics[scale=0.7]{images/File/Ntw.png}
- \captionof{figure}{Example of project .ntw file}
+ \includegraphics[scale=0.5]{images/File/Ntw.png}
+ \captionof{figure}{Example of project .ntw file containing references to orientation labels, tags labels and colours, flags and landmarks files.}
 \label{project_file}
 \end{figure}
 
@@ -190,27 +186,38 @@ Surface files can be of the following types : .stl, .vtk, .ply and .obj\\
 Loads a .ntw file
 
 \subsection{Save project}
-Saves a .ntw file implicating all selected surfaces. Though ISE-MeshTools can open .ntw files
-implicating .stl, .ply and .obj surfaces, when saving a .ntw project, surface files will be saved in .vtk format in order to keep potential tag / scalars associated to each saved surface. Each surface file will be given the name of the original file. Each position file will be given a name which starts with the name of the associated surface and ends with the name of the project. In the .ntw file example shown above, the surface files are 
+\begin{figure}
+  \centering  
+ \includegraphics[scale=0.5]{images/File/Save_ntw.png}
+ \captionof{figure}{Save project window.}
+\label{save_project_file}
+\end{figure}
+The Save project window (\ref{save_project_file}) opens and asks whether :  
 \begin{itemize}
-\item ``Seg-SP07-URM2\_EDJ2.vtk" 
-\item ``Seg-SP07-URM2\_OES2.vtk"
+\item orientation labels should be saved along with the project (by default, orientation labels are not saved, as orientation labels are quite rarely set by users). 
+\item tag colours and legends should by saved (by default, .tag file are not saved along with the project, as tag setting is not the most common task). 
+\item to prefer .CUR over .STV format when applicable or to let ISE-MeshTools decide which landmark file format is best when saving projects. We advise you to let ISE-MeshTools decide unless you are in the process of digitizing curves (for instance on inner ears). 
 \end{itemize}
-\noindent and the project name is ``M2\_Sup.ntw". The advantage of naming position files that way is you may construct different .ntw files with different associated surface files using a same set of surfaces.\\
-\noindent
-\begin{minipage}{0.6\textwidth}
-\noindent \noindent Requirement : all selected surfaces saved via this option
-need to have distinct names.
-Note : When working with ``project" files, you may need at
-some point to rename some of the object surfaces. To do so,
-select one surface, click on \includegraphics[scale=0.7]{images/pixmap/name.png}: the ``Edit Name" window appears.
-Press ok to modify the name of that surface object.
-See tutorial ``working with projects" for further information.
-\end{minipage}  
- \begin{minipage}{0.4\textwidth}\centering
-  \includegraphics[scale=0.5]{images/Icons/edit_name.png}
- \captionof{figure}{Edit name window}
- \end{minipage} 
+Furthermore, saving a .ntw file implies saving all selected surfaces. Though ISE-MeshTools can open .ntw files implicating .stl, .ply and .obj surfaces, when saving a .ntw project, surface files will be saved in .vtk format in order to keep potential tag / scalars associated to each saved surface. Each surface file will be given the name of the original file. Each position file will be given a name which starts with the name of the associated surface and ends with the name of the project. In the .ntw file example shown above, the surface files are 
+\begin{itemize}
+\item ``Hippopotamus\_amphibius\_braincase.vtk" 
+\item ``Hippopotamus\_amphibius\_bulla.vtk" 
+\item ``Hippopotamus\_amphibius\_petrosal.vtk" 
+\item ``Hippopotamus\_amphibius\_sinus.vtk" 
+\end{itemize}
+\noindent and the project name is ``exploded.ntw". The advantage of naming position files that way is you may construct different .ntw files with different associated surface files using a same set of surfaces. Requirement : all selected surfaces saved via this option
+need to have distinct names. Note : When working with ``project" files, you may need at
+some point to rename some of the object surfaces. To do so, select one surface, click on \includegraphics[scale=0.7]{images/pixmap/name.png}: the ``Edit Name" window appears (see Fig. \ref{edit_object_name_window}).
+Press ok to modify the name of that surface object. See tutorial ``working with projects" for further information.
+
+\begin{figure}
+  \centering  
+ \includegraphics[scale=0.5]{images/Icons/edit_name.png}
+ \captionof{figure}{Edit name window.}
+\label{edit_object_name_window}
+\end{figure}
+
+
 
 
 \section{Landmarks}
@@ -221,32 +228,40 @@ the creation a ``normal" landmark (a red one). In the ``target" landmark mode (b
 pressing ``L" + left mouse click will create a ``target" landmark (a yellow one). ``Normal" and ``target" landmarks can be loaded and saved.\\
 Selected ``normal"/"target" landmarks can be reordered using the following buttons. Pressing ``\includegraphics[scale=0.7]{images/pixmap/s_dessous_17.png}"
 will place the selected landmarks earlier in the ``normal"/"target" landmark list, while pressing ````\includegraphics[scale=0.7]{images/pixmap/s_dessus_17.png}""
-will place them one step further, respectively.\\
-ISE-MeshTools can manage two types of landmark files: ``.LMK" ``.VER" files.\\ .LMK files contain a series of lines, each line
+will place them one step further, respectively.\\\\
+ISE-MeshTools can manage three types of landmark files: ``.LMK", ``.VER" and ``.STV" files.
+\begin{itemize}
+\item 
+ .LMK files contain a series of lines, each line
 being constructed the following way (see Fig. \ref{LMK_file}): landmark
 name (without space or tab character),
 landmark coordinates. Note that each landmark name does not need to be of the form ``landmark"+landmark number. Meanwhile, the name should not hold space or tab
 characters.
-\\
-.VER files contain a series
+\item .VER files contain a series
 of lines, each line being
 constructed the following
 way (see Fig. \ref{VER_file}): landmark name (without space or tab character), landmark coordinates, landmark orientation.
-
+\item .STV files may contain one or two series of line. The first line contains two integers, the first being the type of landmark (0 for ``normal" or 1 for ``target"), the second being the number of lines of landmarks of this type which are expected to follow, constructed the following way: landmark name (without space or tab character), landmark coordinates, landmark orientation. An example of .STV file containing both ``normal" and ``target" landmarks is given in Fig. \ref{STV_file}. Note that the number of ``normal" and ``target" landmarks saved within a .STV file can differ.
+\end{itemize}
 \begin{figure}
   \centering
-  \includegraphics[scale=0.7]{images/Landmarks/LMK_file.png}
+  \includegraphics[scale=0.5]{images/Landmarks/LMK_file.png}
  \caption{Example of .LMK file}
 \label{LMK_file}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.7]{images/Landmarks/VER_file.png}
+  \includegraphics[scale=0.5]{images/Landmarks/VER_file.png}
  \caption{Example of .VER file}
 \label{VER_file}
 \end{figure}
-
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{images/Landmarks/STV_file.png}
+ \caption{Example of .STV file}
+\label{STV_file}
+\end{figure}
 
 \subsection{Load landmarks}
 Landmarks opened using this option will be put in the ``normal" landmark list (red landmarks)
@@ -254,10 +269,14 @@ Landmarks opened using this option will be put in the ``normal" landmark list (r
 You may decide whether you wish to save only selected ``normal" landmarks or all selected and
 unselected ``normal" landmarks (the red ones).
 \subsection{Save target landmarks}
-
 You may decide whether you wish to save only selected ``target" landmarks or all selected and
 unselected ``target" landmarks (the red ones).
 The ``Landmarks" chapter (chapter \ref{landmark_chapter}) and the tutorial ``working with landmarks" contain further information regarding landmark digitization with ISE-MeshTools
+\subsection{Load source and target landmarks}
+Landmarks opened using this option will put in the ``normal" and/or ``target" landmark lists depending on how the .STV file is constructed.
+
+\subsection{Save source and target landmarks}\label{STV_section}
+All ``normal" and``target" landmarks will be saved inside the .STV file.
 
 \section{Curves}\label{file_curve_section}
 3D Curves are constructed in ISE-MeshTools using 2 series of landmarks : a series of ``normal"
@@ -317,6 +336,9 @@ This menu allows the user to load a .CUR file.
 \subsection{Save curves}
 This menu allows the user to save current landmarks and curve handles as a .CUR file. This action is only allowed if the number of ``normal" landmarks and ``target" landmarks is the same. If not, the following message appears:\\
 \includegraphics[scale=0.5]{images/Landmarks/Not_identical.png}
+\\
+If you are in the process of digitizing curves (and do not have achieved to digitize the same number of ``normal" and ``target"  landmarks and wish to save the current state of your work, you may decide to save a .STV file (see section \ref{STV_section}).
+
 
 \subsection{Export curves as landmark file}
 \begin{minipage}{0.55\textwidth}
