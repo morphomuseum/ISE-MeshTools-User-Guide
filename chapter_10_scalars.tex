@@ -192,10 +192,18 @@ the mean of the scalar values of all neighbouring vertices (see Fig. \ref{smooth
 \end{figure}
 
 
+\section{Init RGB.}
+Whenever colours are associated to vertices in .PLY of .VTK files (this can be achieved for instance by painting on meshes with Meshlab or by transferring textures obtained by laser scanning to the vertices), ISE-MeshTools stores this ``initial RGB" colour information inside a dedicated scalar (called ``Init\_RGB"). See for instance Fig. \ref{rgb_scalar}.
+\\Note: you have to select a Mesh in order to activate this option.
 
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.3]{images/Scalars_renreding/init_rgb.png} 
+	\caption{Initial RGB Scalar. Left: a mesh is painted using Meshlab. Right: the same mesh opened with ISE-MeshTools using the ``Init RGB" option.}
+\label{rgb_scalar}
+ 
+\end{figure}
 
 \section{Saving and loading scalars.}
-Computed scalars can be saved inside the .vtk surface files. In order to access scalar values into other
-software (such as a text editor), save the .vtk files in ASCII format. Saved scalars can be reloaded into
-ISE-MeshTools. Saving surfaces into .vtk format provides an efficient means to store and exchange
+Computed scalars can be saved inside the .vtk surface files. In order to access scalar values into other software (such as a text editor), save the .vtk files in ASCII format. Saved scalars can be reloaded into ISE-MeshTools. Saving surfaces into .vtk format provides an efficient means to store and exchange
 computed scalars.
