@@ -3,16 +3,16 @@
 \minitoc 
 \section{Tagging surfaces with ISE-MeshTools.}
 25 tags (ordered between 0 and 24) can be given
-a label, a colour, a transparency, and be manually
+a label, a color, a transparency, and be manually
 delimitated. A greater number of tags can be given
 to a surface using automatic tagging tools such as the ``Tag connected regions" tool, but these
-additionnal tags can not be labelled or manually edited. As stated earlier, in order to edit tags, it is advisable to activate the ``tag mode" (press ``\includegraphics[scale=0.7]{images/pixmap/Tag_select_mode.png}" button). In this mode, selected surfaces (on which you can interact and tag) can be drawn according to tag values at each vertex if ``tag display mode"is active. Press ``\includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window.png}" to activate ``tag diplay mode". When active, the tag colour scale shows up in the bottom-right part of the 3D rendering window (see Fig. \ref{tag_colour_scale}). Selected surfaces can be tagged using the pencil tag tool (``\includegraphics[scale=0.7]{images/pixmap/pencil.png}"), the magic wand tag tool ( ``\includegraphics[scale=0.7]{images/pixmap/magic_wand.png}"), the paint bucket tag tool (``\includegraphics[scale=0.7]{images/pixmap/Flood_fill.png}") or the lasso tag tool (``\includegraphics[scale=0.7]{images/pixmap/Lasso_plus.png}").
+additionnal tags can not be labeled or manually edited. As stated earlier, in order to edit tags, it is advisable to activate the ``tag mode" (press ``\includegraphics[scale=0.7]{images/pixmap/Tag_select_mode.png}" button). In this mode, selected surfaces (on which you can interact and tag) can be drawn according to tag values at each vertex if ``tag display mode"is active. Press ``\includegraphics[scale=0.7]{images/pixmap/Show_Tag_Window.png}" to activate ``tag diplay mode". When active, the tag color scale shows up in the bottom-right part of the 3D rendering window (see Fig. \ref{tag_color_scale}). Selected surfaces can be tagged using the pencil tag tool (``\includegraphics[scale=0.7]{images/pixmap/pencil.png}"), the magic wand tag tool ( ``\includegraphics[scale=0.7]{images/pixmap/magic_wand.png}"), the paint bucket tag tool (``\includegraphics[scale=0.7]{images/pixmap/Flood_fill.png}") or the lasso tag tool (``\includegraphics[scale=0.7]{images/pixmap/Lasso_plus.png}").
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.5]{images/Tags/Tag_colour_scale.png} 
-	\caption{Example of tag colour scale}
-\label{tag_colour_scale}
+  \includegraphics[scale=0.5]{images/Tags/Tag_color_scale.png} 
+	\caption{Example of tag color scale}
+\label{tag_color_scale}
  
 \end{figure}
 
@@ -73,16 +73,16 @@ Note : the paint bucket tag tool works exactly like the magic wand tag tool when
 \noindent
 \begin{minipage}{0.6\textwidth}
 These 3 tools share a common option, available in the Tag option
-window, the ``allow colour override" checkbox.\end{minipage}    
+window, the ``allow color override" checkbox.\end{minipage}    
 \begin{minipage}{0.4\textwidth}\centering
-  \includegraphics[scale=0.5]{images/Tags/Allow_colour_override.png}
- \captionof{figure}{Allow colour override option}
+  \includegraphics[scale=0.5]{images/Tags/Allow_color_override.png}
+ \captionof{figure}{Allow color override option}
  \end{minipage} 
 \noindent
-- If checked : no attention is paid to the colour of the vertex on
+- If checked : no attention is paid to the color of the vertex on
 which the left/right click was done during tag propagation.\\
-- If unchecked: tag propagation will stop if a tag colour different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
-\textbf{Important note:} be careful when using ``allow colour override" option \underline{checked} with the paint bucket tag tool or with the magic wand, as it will paint a large region uniformly (minutes or even hours of work may be lost in a single click, if you did not save your tagged surface in .vtk format earlier).
+- If unchecked: tag propagation will stop if a tag color different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
+\textbf{Important note:} be careful when using ``allow color override" option \underline{checked} with the paint bucket tag tool or with the magic wand, as it will paint a large region uniformly (minutes or even hours of work may be lost in a single click, if you did not save your tagged surface in .vtk format earlier).
 
 \subsection{Lasso tag tool} \label{lasso_tag_section}
 \includegraphics[scale=0.7]{images/pixmap/Lasso_plus.png}\\
@@ -99,9 +99,9 @@ Right click & Connects last segment to first segment. If two segments cross each
 Option 1: once polygon is closed, middle click or ``C" + right click. & when the click falls \textbf{inside}/\textit{outside} the closed red
 polygon: the region falling \underline{inside} the polygon
 \textbf{is tagged}/\textit{is not tagged} using the active tag
-colour, respectively. The region falling \underline{outside}
+color, respectively. The region falling \underline{outside}
 the polygon \textbf{is not tagged}/\textit{is tagged} using the
-active tag colour, respectively.
+active tag color, respectively.
 
 \\ \hline			
 Option 2: once polygon is closed: Press ``T" + left or Press ``T" +right click  & The selected tag tool (magic wand or paint bucket) is be used, but tag propagation will not
@@ -128,10 +128,10 @@ The ``Tag options" window (see Fig. \ref{tag_options_window}) can also be opened
 \textbf{Available controls:}\\
 \\
 \noindent
-\textit{\underline{Define tag labels, colours and transparency group:}}\\
+\textit{\underline{Define tag labels, colors and transparency group:}}\\
 \textit{Labels:} you may define tag labels for all 25 available tags.\\
 \textit{Active tag:} you may define the currently active tag.\\
-\textit{Colour}: you may define the colour for all 25 available tags.\\
+\textit{color}: you may define the color for all 25 available tags.\\
 \textit{Alpha:} you may define the transparency for all 25 available tags.\\
 \textit{Clear:} clears the tag region (all vertices of this region will be set to 0 = Tag 00).
 \textit{Fill holes:} opens the ``Fill holes" window (see Fig. \ref{fill_holes_window}). Pressing ok will fill all regions adjacent to the concerned tag region (Tag id) containing less than ``Max num" vertices (see for instance Fig. \ref{tag_fill_holes_example}).
@@ -153,7 +153,7 @@ The ``Tag options" window (see Fig. \ref{tag_options_window}) can also be opened
 \textit{\underline{Tag tools group:}}
 \textit{Pencil tag size:} This option defines the tag propagation extension
 level of the pencil tag tool. Magic wand limit angle : This option defines the tag propagation extension level of the magic wand tag tool (see above for further explanations).\\
-\textit{Allow colour override:} The pencil, magic wand and paint bucket tag tools share this option. If active, tag propagation will stop if a tag colour different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
+\textit{Allow color override:} The pencil, magic wand and paint bucket tag tools share this option. If active, tag propagation will stop if a tag color different from 0 (exterior tag) and from that of the vertex on which the mouse click was done is found.\\
 \\
 \noindent
 \textit{\underline{Tag extraction/deletion:}}\\
@@ -163,9 +163,9 @@ Example of tag merging. Left : cranium of \textit{Microcebus murinus} presenting
 tagged in yellow, the frontal region tagged in orange. Right : frontal tag region was merged into the parietal region.
 
 
-\section{Convert RGB colours to Tags.}
+\section{Convert RGB colors to Tags.}
 
-This option (see Fig. \ref{rgb_conversion}) may be useful when you just have opened a .ply file already containing RGB colours (for instance, let us suppose that you have painted a surface using MeshLab software, and that you wish to convert those colours into tags). RGB colours contained in .ply files are inserted inside the RGB scalar when opened with MeshTools. I you plan to transform those RGB values into tags with MeshTools, be aware of the fact that RGB scalar is reinitialised extremely frequently: for instance as soon as you activate the tag or the scalar display mode, or whenever you change the objects' colour rendering. So I advise you to use the present option only immediately after opening the surface.
+This option (see Fig. \ref{rgb_conversion}) may be useful when you just have opened a .ply file already containing RGB colors (for instance, let us suppose that you have painted a surface using MeshLab software, and that you wish to convert those colors into tags). RGB colors contained in .ply files are inserted inside the RGB scalar when opened with MeshTools. I you plan to transform those RGB values into tags with MeshTools, be aware of the fact that RGB scalar is reinitialised extremely frequently: for instance as soon as you activate the tag or the scalar display mode, or whenever you change the objects' color rendering. So I advise you to use the present option only immediately after opening the surface.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{images/Tags/Convert.png} 
@@ -173,17 +173,17 @@ This option (see Fig. \ref{rgb_conversion}) may be useful when you just have ope
 \label{rgb_conversion}
 \end{figure}
 You have two options :\\
-\textbf{\underline{1) exact colour match}}\\
-$\rightarrow$ In that case, in order to be given a tag value other than Tag 00, a vertex must satisfy the following condition: its RGB scalar value should match one of the 25 colours defined in the ``Tags options" window. If a vertex does not satisfy this condition, it is given the Tag 00 value.\\
-\textbf{\underline{2) Define tags following the first 25 distinct colours found in RGB scalar}}\\
+\textbf{\underline{1) exact color match}}\\
+$\rightarrow$ In that case, in order to be given a tag value other than Tag 00, a vertex must satisfy the following condition: its RGB scalar value should match one of the 25 colors defined in the ``Tags options" window. If a vertex does not satisfy this condition, it is given the Tag 00 value.\\
+\textbf{\underline{2) Define tags following the first 25 distinct colors found in RGB scalar}}\\
 $\rightarrow$ In that case the following sequence of operations is applied:\\
-a) ISE-MeshTools searches for the first 25 distinct RGB colours inside the object; ISE-MeshTools gives them numbers ranging from 0 to 24. Important : if more than 25 distinct colours exist in the RGB scalar, they are not given a tag value.\\
-b) ISE-MeshTools updates tag colours according to the 25 first colours found in the RGB scalar.\\
-c) All vertices are given a Tag value following the procedure defined above in \#1 (exact colour match).\\
-Advantages of \#1 : if you have well prepared your RGB colours so that they matches well those associated with the 25 tags, this procedure will work perfectly.\\
-Advantages of \#2 : if you have up to 25 distinct RGB colours in your .ply file and if you do not want to bother to edit manually the 25 tags and give them a RGB colour, you will save time with this procedure. 
-\\Drawbacks of both methods: if your file contains more than 25 distinct RGB colours, you will definitely lose information in the process.
-\\Be also aware that when saving .ply files with ISE-MeshTools, the RGB coulours saved within the file are those currently rendered in the 3D screen. If you spent time to colour a 3D surface in .ply format (for instance with MeshLab) and you have opened it subsequently with ISE-MeshTools and have saved it again, there is a high probability that all the initial RGB colours will have been replaced with those rendered in ISE-MeshTools.
+a) ISE-MeshTools searches for the first 25 distinct RGB colors inside the object; ISE-MeshTools gives them numbers ranging from 0 to 24. Important : if more than 25 distinct colors exist in the RGB scalar, they are not given a tag value.\\
+b) ISE-MeshTools updates tag colors according to the 25 first colors found in the RGB scalar.\\
+c) All vertices are given a Tag value following the procedure defined above in \#1 (exact color match).\\
+Advantages of \#1 : if you have well prepared your RGB colors so that they matches well those associated with the 25 tags, this procedure will work perfectly.\\
+Advantages of \#2 : if you have up to 25 distinct RGB colors in your .ply file and if you do not want to bother to edit manually the 25 tags and give them a RGB color, you will save time with this procedure. 
+\\Drawbacks of both methods: if your file contains more than 25 distinct RGB colors, you will definitely lose information in the process.
+\\Be also aware that when saving .ply files with ISE-MeshTools, the RGB coulours saved within the file are those currently rendered in the 3D screen. If you spent time to color a 3D surface in .ply format (for instance with MeshLab) and you have opened it subsequently with ISE-MeshTools and have saved it again, there is a high probability that all the initial RGB colors will have been replaced with those rendered in ISE-MeshTools.
 
 
 \section{Merge tags.}
@@ -211,7 +211,7 @@ the parietal region.}
 
 \section{Tag connected regions.}
 This option implies vtkPolyDataConnectivityFilter. This filter will tag all non-connected regions of the
-selected input surface into different colours (see Fig. \ref{tag_connected}).
+selected input surface into different colors (see Fig. \ref{tag_connected}).
 \begin{figure}
   \centering
   \includegraphics[scale=0.45]{images/Tags/Lemur_tag_input_output.png} 
